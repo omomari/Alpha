@@ -74,7 +74,7 @@
     color: var(--text-mid);
     font-weight: 400;
     letter-spacing: 0.02em;
-    transition: color 0.3s ease;
+    transition: color 0.18s ease;
     position: relative;
   }
 
@@ -83,18 +83,30 @@
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 1px;
     background: var(--champagne);
-    transition: width 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    transition: transform 0.18s ease, opacity 0.18s ease;
   }
 
   .nav-menu a:hover::after {
-    width: 100%;
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  .nav-menu a:focus-visible::after {
+    transform: scaleX(1);
+    opacity: 1;
   }
 
   .nav-menu a:hover {
     color: var(--charcoal);
+  }
+  .nav-menu a:focus-visible {
+    color: var(--charcoal);
+    outline: none;
   }
 
   .wrap {
@@ -286,6 +298,8 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     padding: 0.2rem 0.8rem;
+    white-space: nowrap;
+    line-height: 1;
   }
   .prog-level {
     font-size: 0.6rem;
@@ -295,6 +309,8 @@
     color: var(--champagne);
     margin-bottom: 0.4rem;
     margin-top: 0.3rem;
+    line-height: 1.1;
+    white-space: nowrap;
   }
   .prog-name {
     font-family: 'Cormorant Garamond', serif;
@@ -314,6 +330,15 @@
   }
   .prog-col.featured .prog-desc {
     color: rgba(255,255,255,0.45);
+  }
+  html[lang="vi"] .prog-rec {
+    font-size: 0.5rem;
+    letter-spacing: 0.11em;
+    padding: 0.18rem 0.7rem;
+  }
+  html[lang="vi"] .prog-level {
+    font-size: 0.55rem;
+    letter-spacing: 0.17em;
   }
 
   .prog-col-for {
@@ -790,6 +815,12 @@
     margin-left: 1.5rem;
     flex-shrink: 0;
   }
+  .lang-divider {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1;
+    user-select: none;
+  }
   .lang-btn {
     background: transparent;
     border: 1px solid var(--border-light);
@@ -848,12 +879,16 @@
       <a href="#" class="nav-logo" aria-label="Lernbegleitung Startseite" data-i18n="nav-logo">Lernbegleitung</a>
       <ul class="nav-menu">
         <li><a href="#uebersicht" data-i18n="nav-uebersicht">Übersicht</a></li>
+        <li><a href="#platzhalter" data-i18n="nav-platzhalter">Platzhalter</a></li>
+        <li><a href="#leistungen" data-i18n="nav-lernangebote">Lernangebote</a></li>
         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform" target="_blank" data-i18n="nav-fragebogen">Fragebogen</a></li>
         <li><a href="erstgespraech.html" data-i18n="nav-erstgespraech">Erstgespräch</a></li>
+        <li><a href="#feedback" data-i18n="nav-feedback">Feedback</a></li>
       </ul>
       <div class="lang-switcher" role="group" aria-label="Sprache wählen">
-        <button class="lang-btn lang-active" data-lang="de" aria-pressed="true">🇩🇪 Deutsch</button>
-        <button class="lang-btn" data-lang="vi" aria-pressed="false">🇻🇳 Vietnamesisch</button>
+        <button class="lang-btn lang-active" data-lang="de" aria-pressed="true">🇩🇪 DE</button>
+        <span class="lang-divider" aria-hidden="true">|</span>
+        <button class="lang-btn" data-lang="vi" aria-pressed="false">🇻🇳 VI</button>
       </div>
     </div>
   </nav>
@@ -1076,7 +1111,7 @@
     </div>
 
     <!-- CUSTOM INFO BOX -->
-    <div class="custom-info" id="kontakt">
+    <div class="custom-info" id="platzhalter">
       <div class="custom-info-aside">
         <span class="custom-info-icon">💡</span>
         <div class="custom-info-label" data-i18n="custom-info-label">Individuell</div>
@@ -1088,7 +1123,7 @@
     </div>
 
     <!-- FEEDBACK -->
-    <div class="feedback-section" aria-label="Feedback von Eltern und Schülern">
+    <div class="feedback-section" id="feedback" aria-label="Feedback von Eltern und Schülern">
       <div class="feedback-header">
         <h3 data-i18n="feedback-h3">Feedback</h3>
         <p data-i18n="feedback-p">Authentische Einblicke aus der Begleitung — geordnet nach Eltern- und Schülerstimmen.</p>
@@ -1190,8 +1225,11 @@
     de: {
       'nav-logo': 'Lernbegleitung',
       'nav-uebersicht': 'Übersicht',
+      'nav-platzhalter': 'Platzhalter',
+      'nav-lernangebote': 'Lernangebote',
       'nav-fragebogen': 'Fragebogen',
       'nav-erstgespraech': 'Erstgespräch',
+      'nav-feedback': 'Feedback',
       'masthead-eyebrow': 'Privates Lerncoaching · Grundschule bis Oberstufe',
       'masthead-h1-pre': 'Individuelle',
       'masthead-h1-em': 'Lernbegleitung',
@@ -1293,8 +1331,11 @@
     vi: {
       'nav-logo': 'Hỗ Trợ Học Tập',
       'nav-uebersicht': 'Tổng quan',
+      'nav-platzhalter': 'Chỗ trống',
+      'nav-lernangebote': 'Chương trình học',
       'nav-fragebogen': 'Bảng câu hỏi',
       'nav-erstgespraech': 'Buổi tư vấn',
+      'nav-feedback': 'Phản hồi',
       'masthead-eyebrow': 'Gia sư riêng · Từ tiểu học đến trung học phổ thông',
       'masthead-h1-pre': 'Hỗ trợ học tập',
       'masthead-h1-em': 'Cá nhân hóa',
