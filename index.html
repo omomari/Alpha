@@ -463,6 +463,155 @@
     color: rgba(255,255,255,0.35);
   }
 
+
+  /* FEEDBACK SECTION */
+  .feedback-section {
+    margin-bottom: 3rem;
+    padding: 2.2rem;
+    background: var(--champagne-xpale);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+  }
+  .feedback-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .feedback-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    letter-spacing: 0.01em;
+    margin-bottom: 0.35rem;
+  }
+  .feedback-header p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .feedback-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: 1.35rem;
+    flex-wrap: wrap;
+  }
+  .feedback-tab {
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    color: var(--text-mid);
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .feedback-tab[aria-selected="true"] {
+    background: var(--charcoal);
+    color: var(--champagne-light);
+    border-color: var(--charcoal);
+  }
+  .feedback-carousel {
+    position: relative;
+  }
+  .feedback-viewport {
+    overflow: hidden;
+  }
+  .feedback-track {
+    display: none;
+    transition: transform 0.45s ease;
+    will-change: transform;
+  }
+  .feedback-track.active {
+    display: flex;
+  }
+  .feedback-card {
+    width: 100%;
+    flex: 0 0 100%;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(30, 30, 32, 0.07);
+    padding: 1.5rem 1.35rem;
+  }
+  .feedback-stars {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8rem;
+  }
+  .feedback-text {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+  .feedback-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .feedback-name {
+    font-size: 0.76rem;
+    color: var(--charcoal);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .feedback-grade {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  .feedback-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+  .feedback-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    color: var(--charcoal);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .feedback-arrow:hover,
+  .feedback-arrow:focus-visible {
+    border-color: var(--champagne);
+    color: var(--champagne);
+    outline: none;
+  }
+  .feedback-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .feedback-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--champagne);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .feedback-dot.active {
+    background: var(--champagne);
+  }
+
+
   /* ADVISORY NOTE */
   .advisory {
     display: grid;
@@ -646,6 +795,11 @@
     .intro-divider { display: none; }
     .nav-menu { gap: 1rem; }
     .nav-menu a { font-size: 0.75rem; }
+
+    .feedback-section { padding: 1.4rem 1.1rem; }
+    .feedback-card { padding: 1.2rem 1rem; }
+    .feedback-header h3 { font-size: 1.5rem; }
+    .feedback-text { font-size: 0.85rem; }
   }
 </style>
 </head>
@@ -848,6 +1002,83 @@
 
     </div>
 
+
+    <!-- FEEDBACK -->
+    <div class="feedback-section" aria-label="Feedback von Eltern und Schülern">
+      <div class="feedback-header">
+        <h3>Feedback</h3>
+        <p>Authentische Einblicke aus der Begleitung — geordnet nach Eltern- und Schülerstimmen.</p>
+      </div>
+
+      <div class="feedback-tabs" role="tablist" aria-label="Feedback-Kategorien">
+        <button class="feedback-tab" type="button" role="tab" aria-selected="true" aria-controls="feedback-eltern" data-category="eltern">Elternstimmen</button>
+        <button class="feedback-tab" type="button" role="tab" aria-selected="false" aria-controls="feedback-schueler" data-category="schueler">Schülerstimmen</button>
+      </div>
+
+      <div class="feedback-carousel" aria-live="polite">
+        <div class="feedback-viewport">
+          <div class="feedback-track active" id="feedback-eltern" data-category="eltern">
+            <!-- PLATZHALTER: Wird später durch echtes, anonymisiertes Feedback ersetzt -->
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„Unser Kind geht inzwischen deutlich entspannter in die Schule und lernt selbstständiger. Die klare Struktur hat den Familienalltag spürbar entlastet.“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Familie M.</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„Vor den Klassenarbeiten gab es oft Stress. Jetzt weiß unser Sohn, wie er sich vorbereitet, und wir erleben deutlich weniger Druck zu Hause.“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Eltern von L.</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„Besonders überzeugt hat uns die ruhige, verlässliche Begleitung. Unsere Tochter arbeitet konzentrierter und meldet sich im Unterricht wieder häufiger.“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Familie M.-K.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="feedback-track" id="feedback-schueler" data-category="schueler">
+            <!-- PLATZHALTER: Wird später durch echtes, anonymisiertes Feedback ersetzt -->
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„Mathematik verstehe ich jetzt viel besser und traue mich wieder, Fragen zu stellen. Ich habe endlich einen Plan, wie ich lernen soll.“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Minh</span>
+                <span class="feedback-grade">Klasse 8</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„Ich war oft unsicher vor Englischtests. Mit den Übungen fühle ich mich ruhiger und meine Noten sind Schritt für Schritt besser geworden.“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Aylin</span>
+                <span class="feedback-grade">Klasse 7</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„Früher habe ich Hausaufgaben aufgeschoben. Jetzt teile ich mir die Aufgaben ein und bin deutlich schneller fertig, ohne dass ich mich ständig ablenke.“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Jonas</span>
+                <span class="feedback-grade">Klasse 10</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="feedback-controls">
+          <button class="feedback-arrow feedback-prev" type="button" aria-label="Vorheriges Feedback">‹</button>
+          <div class="feedback-dots" aria-label="Feedback-Navigation"></div>
+          <button class="feedback-arrow feedback-next" type="button" aria-label="Nächstes Feedback">›</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ADVISORY NOTE -->
     <div class="advisory">
       <div class="advisory-aside">
@@ -934,6 +1165,154 @@
   grid.addEventListener('mouseleave', function() {
     progCols.forEach(col => col.classList.remove('active'));
   });
+
+
+  // Feedback carousel (Elternstimmen & Schülerstimmen)
+  const feedbackSection = document.querySelector('.feedback-section');
+  if (feedbackSection) {
+    const feedbackTabs = Array.from(feedbackSection.querySelectorAll('.feedback-tab'));
+    const feedbackTracks = Array.from(feedbackSection.querySelectorAll('.feedback-track'));
+    const feedbackDots = feedbackSection.querySelector('.feedback-dots');
+    const feedbackPrev = feedbackSection.querySelector('.feedback-prev');
+    const feedbackNext = feedbackSection.querySelector('.feedback-next');
+    const feedbackViewport = feedbackSection.querySelector('.feedback-viewport');
+    const autoSwitchDelay = 8000;
+
+    let activeCategory = 'eltern';
+    let activeIndex = 0;
+    let autoSwitch = null;
+    let autoPausedByUser = false;
+    let touchStartX = 0;
+
+    const getActiveTrack = () => feedbackSection.querySelector(`.feedback-track[data-category="${activeCategory}"]`);
+    const getActiveCards = () => Array.from(getActiveTrack().querySelectorAll('.feedback-card'));
+
+    const stopAutoSwitch = () => {
+      if (autoSwitch) {
+        clearInterval(autoSwitch);
+        autoSwitch = null;
+      }
+    };
+
+    const startAutoSwitch = () => {
+      if (autoPausedByUser) return;
+      stopAutoSwitch();
+      autoSwitch = setInterval(() => {
+        goToSlide(activeIndex + 1);
+      }, autoSwitchDelay);
+    };
+
+    const pauseAutoSwitchAfterManualAction = () => {
+      autoPausedByUser = true;
+      stopAutoSwitch();
+    };
+
+    const renderDots = (cardsCount) => {
+      feedbackDots.innerHTML = '';
+      for (let i = 0; i < cardsCount; i += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `feedback-dot${i === activeIndex ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Feedback ${i + 1} anzeigen`);
+        dot.setAttribute('aria-current', i === activeIndex ? 'true' : 'false');
+        dot.dataset.index = String(i);
+        feedbackDots.appendChild(dot);
+      }
+    };
+
+    const renderCarousel = () => {
+      const activeTrack = getActiveTrack();
+      const cards = getActiveCards();
+
+      feedbackTracks.forEach(track => {
+        const isActive = track === activeTrack;
+        track.classList.toggle('active', isActive);
+        if (!isActive) {
+          track.style.transform = 'translateX(0)';
+        }
+      });
+
+      activeTrack.style.transform = `translateX(-${activeIndex * 100}%)`;
+      renderDots(cards.length);
+    };
+
+    const goToSlide = (nextIndex, isManual = false) => {
+      const cardsCount = getActiveCards().length;
+      if (!cardsCount) return;
+
+      activeIndex = (nextIndex + cardsCount) % cardsCount;
+      renderCarousel();
+
+      if (isManual) {
+        pauseAutoSwitchAfterManualAction();
+      }
+    };
+
+    const switchCategory = (category, isManual = false) => {
+      if (!category || category === activeCategory) {
+        return;
+      }
+
+      activeCategory = category;
+      activeIndex = 0;
+
+      feedbackTabs.forEach(tab => {
+        const isSelected = tab.dataset.category === activeCategory;
+        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      });
+
+      renderCarousel();
+
+      if (isManual) {
+        pauseAutoSwitchAfterManualAction();
+      }
+    };
+
+    feedbackTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        switchCategory(tab.dataset.category, true);
+      });
+    });
+
+    feedbackPrev.addEventListener('click', () => {
+      goToSlide(activeIndex - 1, true);
+    });
+
+    feedbackNext.addEventListener('click', () => {
+      goToSlide(activeIndex + 1, true);
+    });
+
+    feedbackDots.addEventListener('click', (event) => {
+      const dot = event.target.closest('.feedback-dot');
+      if (!dot) return;
+
+      const targetIndex = Number(dot.dataset.index);
+      if (Number.isNaN(targetIndex)) return;
+
+      goToSlide(targetIndex, true);
+    });
+
+    feedbackViewport.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+
+    feedbackViewport.addEventListener('touchend', (event) => {
+      const touchEndX = event.changedTouches[0].clientX;
+      const swipeDistance = touchStartX - touchEndX;
+      const swipeThreshold = 40;
+
+      if (Math.abs(swipeDistance) < swipeThreshold) return;
+
+      if (swipeDistance > 0) {
+        goToSlide(activeIndex + 1, true);
+      } else {
+        goToSlide(activeIndex - 1, true);
+      }
+    }, { passive: true });
+
+    renderCarousel();
+    startAutoSwitch();
+  }
 </script>
 
 </body>
