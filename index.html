@@ -524,21 +524,21 @@
   }
   .feedback-track {
     display: none;
-    transition: transform 0.45s ease;
-    will-change: transform;
     width: 100%;
   }
   .feedback-track.active {
-    display: flex;
+    display: block;
   }
   .feedback-card {
-    width: 100%;
-    flex: 0 0 100%;
+    display: none;
     background: var(--white);
     border: 1px solid var(--border-light);
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(30, 30, 32, 0.07);
     padding: 1.5rem 1.35rem;
+  }
+  .feedback-card.active {
+    display: block;
   }
   .feedback-stars {
     font-size: 0.9rem;
@@ -1047,7 +1047,7 @@
     <!-- ADVISORY NOTE -->
     <div class="advisory">
       <div class="advisory-aside">
-      </div>
+        <span class="advisory-roman">✉</span>
         <div class="advisory-aside-label" data-i18n="advisory-aside-label">Hinweis</div>
       </div>
       <div class="advisory-content">
@@ -1105,12 +1105,12 @@
             <article class="feedback-card">
               <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
               <p class="feedback-text" data-i18n="fb-eltern-1-text">„Unser Kind geht inzwischen deutlich entspannter in die Schule und lernt selbstständiger. Die klare Struktur hat den Familienalltag spürbar entlastet."</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-eltern-1-name">— Familie M.</span>
               </div>
             </article>
             <article class="feedback-card">
-            </article>
-            <article class="feedback-card">
-              <div class="feedback-meta">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
               <p class="feedback-text" data-i18n="fb-eltern-2-text">„Vor den Klassenarbeiten gab es oft Stress. Jetzt weiß unser Sohn, wie er sich vorbereitet, und wir erleben deutlich weniger Druck zu Hause."</p>
               <div class="feedback-meta">
                 <span class="feedback-name" data-i18n="fb-eltern-2-name">— Eltern von L.</span>
@@ -1511,20 +1511,17 @@
       const activeTrack = getActiveTrack();
       const cards = getActiveCards();
       const cardsCount = cards.length;
-      const slideWidth = cardsCount ? (100 / cardsCount) : 100;
 
       feedbackTracks.forEach(track => {
         const isActive = track === activeTrack;
         track.classList.toggle('active', isActive);
-        const trackCards = Array.from(track.querySelectorAll('.feedback-card'));
-        track.style.width = isActive ? `${Math.max(cardsCount, 1) * 100}%` : '100%';
-        trackCards.forEach(card => {
-          card.style.flex = isActive ? `0 0 ${slideWidth}%` : '0 0 100%';
+        Array.from(track.querySelectorAll('.feedback-card')).forEach((card, index) => {
+          const isVisible = isActive && index === activeIndex;
+          card.classList.toggle('active', isVisible);
+          card.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
         });
-        if (!isActive) track.style.transform = 'translateX(0)';
       });
 
-      activeTrack.style.transform = `translateX(-${activeIndex * slideWidth}%)`;
       renderDots(cardsCount);
     };
 
