@@ -464,6 +464,10 @@
     color: var(--text-muted);
     font-weight: 300;
   }
+  .price-number {
+    display: inline-block;
+    filter: blur(4px);
+  }
   .prog-col.featured .opt-unit {
     color: rgba(255,255,255,0.35);
   }
@@ -974,8 +978,8 @@
             </div>
             <div class="opt-row-duration" data-i18n="dur-60">60 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit" data-i18n="unit-50">50 € / Einheit</span>
-              <span class="opt-month">200 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
+              <span class="opt-unit"><span class="price-number">50</span> €<span class="opt-unit-suffix" data-i18n="unit-suffix"> / Einheit</span></span>
+              <span class="opt-month"><span class="price-number">200</span> €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
           <div class="opt-row">
@@ -985,8 +989,8 @@
             </div>
             <div class="opt-row-duration" data-i18n="dur-90">90 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit" data-i18n="unit-65">65 € / Einheit</span>
-              <span class="opt-month">260 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
+              <span class="opt-unit"><span class="price-number">65</span> €<span class="opt-unit-suffix" data-i18n="unit-suffix"> / Einheit</span></span>
+              <span class="opt-month"><span class="price-number">260</span> €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
         </div>
@@ -1016,8 +1020,8 @@
             </div>
             <div class="opt-row-duration" data-i18n="dur-60">60 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit" data-i18n="unit-50">50 € / Einheit</span>
-              <span class="opt-month">400 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
+              <span class="opt-unit"><span class="price-number">50</span> €<span class="opt-unit-suffix" data-i18n="unit-suffix"> / Einheit</span></span>
+              <span class="opt-month"><span class="price-number">400</span> €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
           <div class="opt-row">
@@ -1027,8 +1031,8 @@
             </div>
             <div class="opt-row-duration" data-i18n="dur-90">90 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit" data-i18n="unit-65">65 € / Einheit</span>
-              <span class="opt-month">520 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
+              <span class="opt-unit"><span class="price-number">65</span> €<span class="opt-unit-suffix" data-i18n="unit-suffix"> / Einheit</span></span>
+              <span class="opt-month"><span class="price-number">520</span> €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
         </div>
@@ -1058,8 +1062,8 @@
             </div>
             <div class="opt-row-duration" data-i18n="dur-60">60 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit" data-i18n="unit-50">50 € / Einheit</span>
-              <span class="opt-month">600 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
+              <span class="opt-unit"><span class="price-number">50</span> €<span class="opt-unit-suffix" data-i18n="unit-suffix"> / Einheit</span></span>
+              <span class="opt-month"><span class="price-number">600</span> €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
           <div class="opt-row">
@@ -1069,8 +1073,8 @@
             </div>
             <div class="opt-row-duration" data-i18n="dur-90">90 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit" data-i18n="unit-65">65 € / Einheit</span>
-              <span class="opt-month">780 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
+              <span class="opt-unit"><span class="price-number">65</span> €<span class="opt-unit-suffix" data-i18n="unit-suffix"> / Einheit</span></span>
+              <span class="opt-month"><span class="price-number">780</span> €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
         </div>
@@ -1279,8 +1283,7 @@
       'freq-3x': '3× pro Woche',
       'dur-60': '60 Minuten / Einheit',
       'dur-90': '90 Minuten / Einheit',
-      'unit-50': '50 € / Einheit',
-      'unit-65': '65 € / Einheit',
+      'unit-suffix': ' / Einheit',
       'mo-label': ' / Mo.',
       'advisory-aside-label': 'Hinweis',
       'advisory-h3': 'Zur Wahl der richtigen Einheit',
@@ -1385,8 +1388,7 @@
       'freq-3x': '3× mỗi tuần',
       'dur-60': '60 phút / buổi',
       'dur-90': '90 phút / buổi',
-      'unit-50': '50 € / buổi',
-      'unit-65': '65 € / buổi',
+      'unit-suffix': ' / buổi',
       'mo-label': ' / tháng',
       'advisory-aside-label': 'Lưu ý',
       'advisory-h3': 'Về việc chọn buổi học phù hợp',
