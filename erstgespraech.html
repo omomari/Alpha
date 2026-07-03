@@ -178,44 +178,42 @@
   /* ADVISORY NOTE (reused for hint box) */
   .advisory {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 2rem;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    padding: 2.5rem;
     background: var(--white);
     border: 1px solid var(--border-light);
     border-top: 2px solid var(--champagne);
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     align-items: start;
   }
   .advisory-aside {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    width: auto;
-    text-align: left;
+    width: 90px;
+    flex-shrink: 0;
+    text-align: center;
   }
   .advisory-roman {
-    display: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--champagne);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.15rem;
   }
   .advisory-aside-label {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--champagne);
-    background: rgba(201,169,124,0.08);
-    border: 1px solid var(--accent-line);
-    border-radius: 999px;
-    padding: 0.35rem 0.7rem;
+    color: var(--text-muted);
   }
   .advisory-content h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.65rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: var(--charcoal);
-    margin-bottom: 0.85rem;
+    margin-bottom: 1rem;
     letter-spacing: 0.01em;
   }
   .advisory-content p {
@@ -287,6 +285,7 @@
 
   @media (max-width: 720px) {
     .advisory { grid-template-columns: 1fr; }
+    .advisory-aside { width: auto; text-align: left; display: flex; align-items: center; gap: 1rem; }
     .masthead h1 { font-size: 2.4rem; }
     .nav-menu { gap: 1rem; }
     .nav-menu a { font-size: 0.75rem; }
