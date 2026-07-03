@@ -790,6 +790,8 @@
     .advisory-two { grid-template-columns: 1fr; }
     .custom-info { grid-template-columns: 1fr; }
     .custom-info-aside { width: auto; text-align: left; display: flex; align-items: center; gap: 1rem; }
+    .feedback-section { padding: 1.4rem; }
+    .feedback-card { min-height: 18rem; padding: 1.3rem; }
     .masthead h1 { font-size: 2.4rem; }
     .intro-strip { grid-template-columns: 1fr; gap: 1.5rem; }
     .intro-divider { display: none; }
@@ -1165,6 +1167,7 @@
   grid.addEventListener('mouseleave', function() {
     progCols.forEach(col => col.classList.remove('active'));
   });
+
 
 
   // Feedback carousel (Elternstimmen & Schülerstimmen)
