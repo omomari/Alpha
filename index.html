@@ -520,11 +520,13 @@
   }
   .feedback-viewport {
     overflow: hidden;
+    position: relative;
   }
   .feedback-track {
     display: none;
     transition: transform 0.45s ease;
     will-change: transform;
+    width: 100%;
   }
   .feedback-track.active {
     display: flex;
@@ -1070,6 +1072,14 @@
                 <span class="feedback-grade">Klasse 10</span>
               </div>
             </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text">„[Platzhalter für eine anonymisierte Schüler*in-Stimme]“</p>
+              <div class="feedback-meta">
+                <span class="feedback-name">— Schüler*in (anonym)</span>
+                <span class="feedback-grade">Klasse —</span>
+              </div>
+            </article>
           </div>
         </div>
 
@@ -1226,17 +1236,24 @@
     const renderCarousel = () => {
       const activeTrack = getActiveTrack();
       const cards = getActiveCards();
+      const cardsCount = cards.length;
+      const slideWidth = cardsCount ? (100 / cardsCount) : 100;
 
       feedbackTracks.forEach(track => {
         const isActive = track === activeTrack;
         track.classList.toggle('active', isActive);
+        const trackCards = Array.from(track.querySelectorAll('.feedback-card'));
+        track.style.width = isActive ? `${Math.max(cardsCount, 1) * 100}%` : '100%';
+        trackCards.forEach(card => {
+          card.style.flex = isActive ? `0 0 ${slideWidth}%` : '0 0 100%';
+        });
         if (!isActive) {
           track.style.transform = 'translateX(0)';
         }
       });
 
-      activeTrack.style.transform = `translateX(-${activeIndex * 100}%)`;
-      renderDots(cards.length);
+      activeTrack.style.transform = `translateX(-${activeIndex * slideWidth}%)`;
+      renderDots(cardsCount);
     };
 
     const goToSlide = (nextIndex, isManual = false) => {
