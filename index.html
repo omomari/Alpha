@@ -586,6 +586,44 @@
     font-weight: 300;
   }
 
+  /* FRAGEBOGEN SECTION */
+  .fragebogen-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 6rem;
+  }
+  .fragebogen-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .fragebogen-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.3rem;
+  }
+  .fragebogen-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+  .fragebogen-container {
+    display: flex;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    padding: 2rem;
+    border-radius: 2px;
+  }
+  .fragebogen-container iframe {
+    width: 100%;
+    max-width: 700px;
+    border: none;
+    border-radius: 2px;
+  }
+
   /* SIGN-OFF */
   .signoff {
     text-align: center;
@@ -639,6 +677,8 @@
     .intro-divider { display: none; }
     .nav-menu { gap: 1rem; }
     .nav-menu a { font-size: 0.75rem; }
+    .fragebogen-container { padding: 1rem; }
+    .fragebogen-container iframe { height: auto; }
   }
 </style>
 </head>
@@ -650,7 +690,7 @@
       <a href="#" class="nav-logo" aria-label="Lernbegleitung Startseite">Lernbegleitung</a>
       <ul class="nav-menu">
         <li><a href="#uebersicht">Übersicht</a></li>
-        <li><a href="https://forms.google.com/DEIN-FORMULAR-ID-HIER" target="_blank">Fragebogen</a></li>
+        <li><a href="#fragebogen">Fragebogen</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </div>
@@ -702,7 +742,7 @@
     </div>
   </section>
 
-  <!-- SECTION: LEISTUNGEN -->
+  <!-- SECTION: PROGRAM -->
   <section id="leistungen">
     <!-- PROGRAM -->
     <div class="program-header">
@@ -847,7 +887,7 @@
       </div>
       <div class="advisory-content">
         <h3>Zur Wahl der richtigen Einheit</h3>
-        <p>Die Förderstufe bestimmt die Intensität der Begleitung — nicht die Uhr. Beide Einheitenlängen stehen in jeder Stufe zur Verfügung. Die Wahl richtet sich nach dem individuellen Le[...]
+        <p>Die Förderstufe bestimmt die Intensität der Begleitung — nicht die Uhr. Beide Einheitenlängen stehen in jeder Stufe zur Verfügung. Die Wahl richtet sich nach dem individuellen Lernbedarf.</p>
         <div class="advisory-two">
           <div class="advisory-block">
             <h4>60 Minuten</h4>
@@ -878,8 +918,19 @@
       </div>
       <div class="custom-info-content">
         <h3>Nichts Passendes dabei?</h3>
-        <p>Kein vordefiniertes Paket passt zu Ihren Anforderungen? Kontaktieren Sie mich gerne — wir beraten Sie individuell und erstellen gemeinsam einen pädagogisch angemessenen Plan, der ge[...]
+        <p>Kein vordefiniertes Paket passt zu Ihren Anforderungen? Kontaktieren Sie mich gerne — wir beraten Sie individuell und erstellen gemeinsam einen pädagogisch angemessenen Plan, der genau zu Ihrem Kind passt.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FRAGEBOGEN -->
+  <section id="fragebogen" class="fragebogen-section">
+    <div class="fragebogen-header">
+      <h2>Ihr persönlicher Fragebogen</h2>
+      <p>Helfen Sie uns, Ihr Kind besser kennenzulernen — damit wir die perfekte Begleitung gestalten können</p>
+    </div>
+    <div class="fragebogen-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform?embedded=true" width="640" height="3605" frameborder="0" marginheight="0" marginwidth="0">Wird geladen…</iframe>
     </div>
   </section>
 
