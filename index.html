@@ -782,6 +782,38 @@
     line-height: 1.8;
   }
 
+  /* LANGUAGE SWITCHER */
+  .lang-switcher {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-mid);
+    padding: 0.28rem 0.65rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .lang-btn:hover {
+    border-color: var(--champagne);
+    color: var(--charcoal);
+  }
+  .lang-btn.lang-active {
+    background: var(--charcoal);
+    color: var(--champagne-light);
+    border-color: var(--charcoal);
+  }
+
   @media (max-width: 720px) {
     .program-grid { grid-template-columns: 1fr; }
     .prog-col { border-right: none; border-bottom: 1px solid var(--border-light); }
@@ -799,6 +831,7 @@
     .intro-divider { display: none; }
     .nav-menu { gap: 1rem; }
     .nav-menu a { font-size: 0.75rem; }
+    .lang-btn { font-size: 0.68rem; padding: 0.25rem 0.45rem; }
 
     .feedback-section { padding: 1.4rem 1.1rem; }
     .feedback-card { padding: 1.2rem 1rem; }
@@ -812,12 +845,16 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="nav-wrap">
-      <a href="#" class="nav-logo" aria-label="Lernbegleitung Startseite">Lernbegleitung</a>
+      <a href="#" class="nav-logo" aria-label="Lernbegleitung Startseite" data-i18n="nav-logo">Lernbegleitung</a>
       <ul class="nav-menu">
-        <li><a href="#uebersicht">Übersicht</a></li>
-        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform" target="_blank">Fragebogen</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#uebersicht" data-i18n="nav-uebersicht">Übersicht</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform" target="_blank" data-i18n="nav-fragebogen">Fragebogen</a></li>
+        <li><a href="erstgespraech.html" data-i18n="nav-erstgespraech">Erstgespräch</a></li>
       </ul>
+      <div class="lang-switcher" role="group" aria-label="Sprache wählen">
+        <button class="lang-btn lang-active" data-lang="de" aria-pressed="true">🇩🇪 Deutsch</button>
+        <button class="lang-btn" data-lang="vi" aria-pressed="false">🇻🇳 Vietnamesisch</button>
+      </div>
     </div>
   </nav>
 
@@ -827,44 +864,44 @@
   <section id="uebersicht">
     <!-- MASTHEAD -->
     <div class="masthead">
-      <div class="masthead-eyebrow">Privates Lerncoaching · Grundschule bis Oberstufe</div>
-      <h1>Individuelle<br><em>Lernbegleitung</em></h1>
-      <p class="masthead-tagline">Mehr als Nachhilfe — ein Mentor, der Ihr Kind wirklich kennt</p>
+      <div class="masthead-eyebrow" data-i18n="masthead-eyebrow">Privates Lerncoaching · Grundschule bis Oberstufe</div>
+      <h1><span data-i18n="masthead-h1-pre">Individuelle</span><br><em data-i18n="masthead-h1-em">Lernbegleitung</em></h1>
+      <p class="masthead-tagline" data-i18n="masthead-tagline">Mehr als Nachhilfe — ein Mentor, der Ihr Kind wirklich kennt</p>
     </div>
 
     <!-- INTRO STRIP -->
     <div class="intro-strip">
       <div class="intro-col">
         <div class="intro-col-icon">🎯</div>
-        <div class="intro-col-label">Mehr als Stoff</div>
-        <div class="intro-col-text">Wissensvermittlung, Lernorganisation, Motivation und Konzentrationstraining in einem</div>
+        <div class="intro-col-label" data-i18n="intro-label-1">Mehr als Stoff</div>
+        <div class="intro-col-text" data-i18n="intro-text-1">Wissensvermittlung, Lernorganisation, Motivation und Konzentrationstraining in einem</div>
       </div>
       <div class="intro-divider"></div>
       <div class="intro-col">
         <div class="intro-col-icon">🤝</div>
-        <div class="intro-col-label">Echte Verbindlichkeit</div>
-        <div class="intro-col-text">Verlässliche Beziehung, individuelle Begleitung und klare Vereinbarungen mit Ihrem Kind</div>
+        <div class="intro-col-label" data-i18n="intro-label-2">Echte Verbindlichkeit</div>
+        <div class="intro-col-text" data-i18n="intro-text-2">Verlässliche Beziehung, individuelle Begleitung und klare Vereinbarungen mit Ihrem Kind</div>
       </div>
       <div class="intro-divider"></div>
       <div class="intro-col">
         <div class="intro-col-icon">🧘</div>
-        <div class="intro-col-label">Elternentlastung</div>
-        <div class="intro-col-text">Sie bleiben informiert, ohne selbst täglich eingreifen zu müssen</div>
+        <div class="intro-col-label" data-i18n="intro-label-3">Elternentlastung</div>
+        <div class="intro-col-text" data-i18n="intro-text-3">Sie bleiben informiert, ohne selbst täglich eingreifen zu müssen</div>
       </div>
     </div>
 
     <!-- BENEFITS -->
     <div class="benefits-section">
-      <div class="benefits-label">Was diese Begleitung umfasst</div>
+      <div class="benefits-label" data-i18n="benefits-label">Was diese Begleitung umfasst</div>
       <div class="benefits-flow">
-        <span class="ben-tag">Wissenslücken schließen</span>
-        <span class="ben-tag">Lernstrategien entwickeln</span>
-        <span class="ben-tag">Motivation fördern</span>
-        <span class="ben-tag">Konzentration stärken</span>
-        <span class="ben-tag">Verlässliche Begleitung</span>
-        <span class="ben-tag">Entlastung für Eltern</span>
-        <span class="ben-tag">Entlastung für das Schulkind</span>
-        <span class="ben-tag">Selbstsicherer in die Schule gehen</span>
+        <span class="ben-tag" data-i18n="ben-1">Wissenslücken schließen</span>
+        <span class="ben-tag" data-i18n="ben-2">Lernstrategien entwickeln</span>
+        <span class="ben-tag" data-i18n="ben-3">Motivation fördern</span>
+        <span class="ben-tag" data-i18n="ben-4">Konzentration stärken</span>
+        <span class="ben-tag" data-i18n="ben-5">Verlässliche Begleitung</span>
+        <span class="ben-tag" data-i18n="ben-6">Entlastung für Eltern</span>
+        <span class="ben-tag" data-i18n="ben-7">Entlastung für das Schulkind</span>
+        <span class="ben-tag" data-i18n="ben-8">Selbstsicherer in die Schule gehen</span>
       </div>
     </div>
   </section>
@@ -873,8 +910,8 @@
   <section id="leistungen">
     <!-- PROGRAM -->
     <div class="program-header">
-      <h2>Das Programm</h2>
-      <p>Drei Begleitungsstufen — maßgeschneidert nach dem Bedarf Ihres Kindes</p>
+      <h2 data-i18n="program-h2">Das Programm</h2>
+      <p data-i18n="program-p">Drei Begleitungsstufen — maßgeschneidert nach dem Bedarf Ihres Kindes</p>
     </div>
 
     <div class="program-grid">
@@ -882,39 +919,39 @@
       <!-- BEGLEITUNG -->
       <div class="prog-col">
         <div class="prog-col-head">
-          <div class="prog-level">Stufe I</div>
-          <div class="prog-name">Begleitung</div>
-          <div class="prog-desc">Stabilisieren · Strukturieren · Halten</div>
+          <div class="prog-level" data-i18n="prog1-level">Stufe I</div>
+          <div class="prog-name" data-i18n="prog1-name">Begleitung</div>
+          <div class="prog-desc" data-i18n="prog1-desc">Stabilisieren · Strukturieren · Halten</div>
         </div>
         <div class="prog-col-for">
-          <div class="for-title">Geeignet für</div>
+          <div class="for-title" data-i18n="for-title">Geeignet für</div>
           <ul class="prog-for-list">
-            <li>Stabile Schüler mit Bedarf an Routine</li>
-            <li>Regelmäßige Hausaufgabenstruktur</li>
-            <li>Erhalt des Leistungsniveaus</li>
+            <li data-i18n="prog1-for-1">Stabile Schüler mit Bedarf an Routine</li>
+            <li data-i18n="prog1-for-2">Regelmäßige Hausaufgabenstruktur</li>
+            <li data-i18n="prog1-for-3">Erhalt des Leistungsniveaus</li>
           </ul>
         </div>
         <div class="prog-col-opts">
           <div class="opt-row">
             <div class="opt-row-header">
-              <span class="opt-row-label">Option A</span>
-              <span class="opt-row-freq">1× pro Woche</span>
+              <span class="opt-row-label" data-i18n="opt-a">Option A</span>
+              <span class="opt-row-freq" data-i18n="freq-1x">1× pro Woche</span>
             </div>
-            <div class="opt-row-duration">60 Minuten / Einheit</div>
+            <div class="opt-row-duration" data-i18n="dur-60">60 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit">50 € / Einheit</span>
-              <span class="opt-month">200 €<span class="opt-month-label"> / Mo.</span></span>
+              <span class="opt-unit" data-i18n="unit-50">50 € / Einheit</span>
+              <span class="opt-month">200 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
           <div class="opt-row">
             <div class="opt-row-header">
-              <span class="opt-row-label">Option B</span>
-              <span class="opt-row-freq">1× pro Woche</span>
+              <span class="opt-row-label" data-i18n="opt-b">Option B</span>
+              <span class="opt-row-freq" data-i18n="freq-1x">1× pro Woche</span>
             </div>
-            <div class="opt-row-duration">90 Minuten / Einheit</div>
+            <div class="opt-row-duration" data-i18n="dur-90">90 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit">65 € / Einheit</span>
-              <span class="opt-month">260 €<span class="opt-month-label"> / Mo.</span></span>
+              <span class="opt-unit" data-i18n="unit-65">65 € / Einheit</span>
+              <span class="opt-month">260 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
         </div>
@@ -923,40 +960,40 @@
       <!-- FÖRDERUNG -->
       <div class="prog-col featured">
         <div class="prog-col-head">
-          <div class="prog-rec">Meistgewählt</div>
-          <div class="prog-level">Stufe II</div>
-          <div class="prog-name">Förderung</div>
-          <div class="prog-desc">Aufholen · Verbessern · Wachsen</div>
+          <div class="prog-rec" data-i18n="prog-rec">Meistgewählt</div>
+          <div class="prog-level" data-i18n="prog2-level">Stufe II</div>
+          <div class="prog-name" data-i18n="prog2-name">Förderung</div>
+          <div class="prog-desc" data-i18n="prog2-desc">Aufholen · Verbessern · Wachsen</div>
         </div>
         <div class="prog-col-for">
-          <div class="for-title">Geeignet für</div>
+          <div class="for-title" data-i18n="for-title">Geeignet für</div>
           <ul class="prog-for-list">
-            <li>Bestehende Wissenslücken schließen</li>
-            <li>Gezielte Notenverbesserung</li>
-            <li>Regelmäßige strukturierte Unterstützung</li>
+            <li data-i18n="prog2-for-1">Bestehende Wissenslücken schließen</li>
+            <li data-i18n="prog2-for-2">Gezielte Notenverbesserung</li>
+            <li data-i18n="prog2-for-3">Regelmäßige strukturierte Unterstützung</li>
           </ul>
         </div>
         <div class="prog-col-opts">
           <div class="opt-row">
             <div class="opt-row-header">
-              <span class="opt-row-label">Option A</span>
-              <span class="opt-row-freq">2× pro Woche</span>
+              <span class="opt-row-label" data-i18n="opt-a">Option A</span>
+              <span class="opt-row-freq" data-i18n="freq-2x">2× pro Woche</span>
             </div>
-            <div class="opt-row-duration">60 Minuten / Einheit</div>
+            <div class="opt-row-duration" data-i18n="dur-60">60 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit">50 € / Einheit</span>
-              <span class="opt-month">400 €<span class="opt-month-label"> / Mo.</span></span>
+              <span class="opt-unit" data-i18n="unit-50">50 € / Einheit</span>
+              <span class="opt-month">400 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
           <div class="opt-row">
             <div class="opt-row-header">
-              <span class="opt-row-label">Option B</span>
-              <span class="opt-row-freq">2× pro Woche</span>
+              <span class="opt-row-label" data-i18n="opt-b">Option B</span>
+              <span class="opt-row-freq" data-i18n="freq-2x">2× pro Woche</span>
             </div>
-            <div class="opt-row-duration">90 Minuten / Einheit</div>
+            <div class="opt-row-duration" data-i18n="dur-90">90 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit">65 € / Einheit</span>
-              <span class="opt-month">520 €<span class="opt-month-label"> / Mo.</span></span>
+              <span class="opt-unit" data-i18n="unit-65">65 € / Einheit</span>
+              <span class="opt-month">520 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
         </div>
@@ -965,40 +1002,40 @@
       <!-- INTENSIV -->
       <div class="prog-col">
         <div class="prog-col-head">
-          <div class="prog-level">Stufe III</div>
-          <div class="prog-name">Intensiv</div>
-          <div class="prog-desc">Durchstarten · Aufholen · Bestehen</div>
+          <div class="prog-level" data-i18n="prog3-level">Stufe III</div>
+          <div class="prog-name" data-i18n="prog3-name">Intensiv</div>
+          <div class="prog-desc" data-i18n="prog3-desc">Durchstarten · Aufholen · Bestehen</div>
         </div>
         <div class="prog-col-for">
-          <div class="for-title">Geeignet für</div>
+          <div class="for-title" data-i18n="for-title">Geeignet für</div>
           <ul class="prog-for-list">
-            <li>Größere Lernrückstände</li>
-            <li>Prüfungs- und Klausurphasen</li>
-            <li>Versetzungsgefährdung</li>
-            <li>Engmaschige, intensive Begleitung</li>
+            <li data-i18n="prog3-for-1">Größere Lernrückstände</li>
+            <li data-i18n="prog3-for-2">Prüfungs- und Klausurphasen</li>
+            <li data-i18n="prog3-for-3">Versetzungsgefährdung</li>
+            <li data-i18n="prog3-for-4">Engmaschige, intensive Begleitung</li>
           </ul>
         </div>
         <div class="prog-col-opts">
           <div class="opt-row">
             <div class="opt-row-header">
-              <span class="opt-row-label">Option A</span>
-              <span class="opt-row-freq">3× pro Woche</span>
+              <span class="opt-row-label" data-i18n="opt-a">Option A</span>
+              <span class="opt-row-freq" data-i18n="freq-3x">3× pro Woche</span>
             </div>
-            <div class="opt-row-duration">60 Minuten / Einheit</div>
+            <div class="opt-row-duration" data-i18n="dur-60">60 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit">50 € / Einheit</span>
-              <span class="opt-month">600 €<span class="opt-month-label"> / Mo.</span></span>
+              <span class="opt-unit" data-i18n="unit-50">50 € / Einheit</span>
+              <span class="opt-month">600 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
           <div class="opt-row">
             <div class="opt-row-header">
-              <span class="opt-row-label">Option B</span>
-              <span class="opt-row-freq">3× pro Woche</span>
+              <span class="opt-row-label" data-i18n="opt-b">Option B</span>
+              <span class="opt-row-freq" data-i18n="freq-3x">3× pro Woche</span>
             </div>
-            <div class="opt-row-duration">90 Minuten / Einheit</div>
+            <div class="opt-row-duration" data-i18n="dur-90">90 Minuten / Einheit</div>
             <div class="opt-pricing">
-              <span class="opt-unit">65 € / Einheit</span>
-              <span class="opt-month">780 €<span class="opt-month-label"> / Mo.</span></span>
+              <span class="opt-unit" data-i18n="unit-65">65 € / Einheit</span>
+              <span class="opt-month">780 €<span class="opt-month-label" data-i18n="mo-label"> / Mo.</span></span>
             </div>
           </div>
         </div>
@@ -1006,116 +1043,32 @@
 
     </div>
 
-
-    <!-- FEEDBACK -->
-    <div class="feedback-section" aria-label="Feedback von Eltern und Schülern">
-      <div class="feedback-header">
-        <h3>Feedback</h3>
-        <p>Authentische Einblicke aus der Begleitung — geordnet nach Eltern- und Schülerstimmen.</p>
-      </div>
-
-      <div class="feedback-tabs" role="tablist" aria-label="Feedback-Kategorien">
-        <button class="feedback-tab" type="button" role="tab" aria-selected="true" aria-controls="feedback-eltern" data-category="eltern">Elternstimmen</button>
-        <button class="feedback-tab" type="button" role="tab" aria-selected="false" aria-controls="feedback-schueler" data-category="schueler">Schülerstimmen</button>
-      </div>
-
-      <div class="feedback-carousel" aria-live="polite">
-        <div class="feedback-viewport">
-          <div class="feedback-track active" id="feedback-eltern" data-category="eltern">
-            <!-- PLATZHALTER: Wird später durch echtes, anonymisiertes Feedback ersetzt -->
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„Unser Kind geht inzwischen deutlich entspannter in die Schule und lernt selbstständiger. Die klare Struktur hat den Familienalltag spürbar entlastet.“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Familie M.</span>
-              </div>
-            </article>
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„Vor den Klassenarbeiten gab es oft Stress. Jetzt weiß unser Sohn, wie er sich vorbereitet, und wir erleben deutlich weniger Druck zu Hause.“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Eltern von L.</span>
-              </div>
-            </article>
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„Besonders überzeugt hat uns die ruhige, verlässliche Begleitung. Unsere Tochter arbeitet konzentrierter und meldet sich im Unterricht wieder häufiger.“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Familie M.-K.</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="feedback-track" id="feedback-schueler" data-category="schueler">
-            <!-- PLATZHALTER: Wird später durch echtes, anonymisiertes Feedback ersetzt -->
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„Mathematik verstehe ich jetzt viel besser und traue mich wieder, Fragen zu stellen. Ich habe endlich einen Plan, wie ich lernen soll.“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Minh</span>
-                <span class="feedback-grade">Klasse 8</span>
-              </div>
-            </article>
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„Ich war oft unsicher vor Englischtests. Mit den Übungen fühle ich mich ruhiger und meine Noten sind Schritt für Schritt besser geworden.“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Aylin</span>
-                <span class="feedback-grade">Klasse 7</span>
-              </div>
-            </article>
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„Früher habe ich Hausaufgaben aufgeschoben. Jetzt teile ich mir die Aufgaben ein und bin deutlich schneller fertig, ohne dass ich mich ständig ablenke.“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Jonas</span>
-                <span class="feedback-grade">Klasse 10</span>
-              </div>
-            </article>
-            <article class="feedback-card">
-              <div class="feedback-stars" aria-label="5 von 5 Sternen">⭐⭐⭐⭐⭐</div>
-              <p class="feedback-text">„[Platzhalter für eine anonymisierte Schüler*in-Stimme]“</p>
-              <div class="feedback-meta">
-                <span class="feedback-name">— Schüler*in (anonym)</span>
-                <span class="feedback-grade">Klasse —</span>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="feedback-controls">
-          <button class="feedback-arrow feedback-prev" type="button" aria-label="Vorheriges Feedback">‹</button>
-          <div class="feedback-dots" aria-label="Feedback-Navigation"></div>
-          <button class="feedback-arrow feedback-next" type="button" aria-label="Nächstes Feedback">›</button>
-        </div>
-      </div>
-    </div>
 
     <!-- ADVISORY NOTE -->
     <div class="advisory">
       <div class="advisory-aside">
-        <span class="advisory-roman">i</span>
-        <div class="advisory-aside-label">Hinweis</div>
+      </div>
+        <div class="advisory-aside-label" data-i18n="advisory-aside-label">Hinweis</div>
       </div>
       <div class="advisory-content">
-        <h3>Zur Wahl der richtigen Einheit</h3>
-        <p>Die Förderstufe bestimmt die Intensität der Begleitung — nicht die Uhr. Beide Einheitenlängen stehen in jeder Stufe zur Verfügung. Die Wahl richtet sich nach dem individuellen Lernbedarf.</p>
+        <h3 data-i18n="advisory-h3">Zur Wahl der richtigen Einheit</h3>
+        <p data-i18n="advisory-p">Die Förderstufe bestimmt die Intensität der Begleitung — nicht die Uhr. Beide Einheitenlängen stehen in jeder Stufe zur Verfügung. Die Wahl richtet sich nach dem individuellen Lernbedarf.</p>
         <div class="advisory-two">
           <div class="advisory-block">
-            <h4>60 Minuten</h4>
+            <h4 data-i18n="advisory-60-h">60 Minuten</h4>
             <ul>
-              <li>Fokussiertes, konzentriertes Arbeiten</li>
-              <li>Stoff festigen und wiederholen</li>
-              <li>Hausaufgaben strukturiert begleiten</li>
+              <li data-i18n="advisory-60-li-1">Fokussiertes, konzentriertes Arbeiten</li>
+              <li data-i18n="advisory-60-li-2">Stoff festigen und wiederholen</li>
+              <li data-i18n="advisory-60-li-3">Hausaufgaben strukturiert begleiten</li>
             </ul>
           </div>
           <div class="advisory-block">
-            <h4>90 Minuten</h4>
+            <h4 data-i18n="advisory-90-h">90 Minuten</h4>
             <ul>
-              <li>Größere Wissenslücken aufarbeiten</li>
-              <li>Mehrere Fächer oder Themen parallel</li>
-              <li>Klassenarbeitsvorbereitung</li>
-              <li>Tiefe und nachhaltige Förderung</li>
+              <li data-i18n="advisory-90-li-1">Größere Wissenslücken aufarbeiten</li>
+              <li data-i18n="advisory-90-li-2">Mehrere Fächer oder Themen parallel</li>
+              <li data-i18n="advisory-90-li-3">Klassenarbeitsvorbereitung</li>
+              <li data-i18n="advisory-90-li-4">Tiefe und nachhaltige Förderung</li>
             </ul>
           </div>
         </div>
@@ -1126,61 +1079,386 @@
     <div class="custom-info" id="kontakt">
       <div class="custom-info-aside">
         <span class="custom-info-icon">💡</span>
-        <div class="custom-info-label">Individuell</div>
+        <div class="custom-info-label" data-i18n="custom-info-label">Individuell</div>
       </div>
       <div class="custom-info-content">
-        <h3>Nichts Passendes dabei?</h3>
-        <p>Kein vordefiniertes Paket passt zu Ihren Anforderungen? Kontaktieren Sie mich gerne — wir beraten Sie individuell und erstellen gemeinsam einen pädagogisch angemessenen Plan, der genau zu Ihrem Kind passt.</p>
+        <h3 data-i18n="custom-info-h3">Nichts Passendes dabei?</h3>
+        <p data-i18n="custom-info-p">Kein vordefiniertes Paket passt zu Ihren Anforderungen? Kontaktieren Sie mich gerne — wir beraten Sie individuell und erstellen gemeinsam einen pädagogisch angemessenen Plan, der genau zu Ihrem Kind passt.</p>
+      </div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div class="feedback-section" aria-label="Feedback von Eltern und Schülern">
+      <div class="feedback-header">
+        <h3 data-i18n="feedback-h3">Feedback</h3>
+        <p data-i18n="feedback-p">Authentische Einblicke aus der Begleitung — geordnet nach Eltern- und Schülerstimmen.</p>
+      </div>
+
+      <div class="feedback-tabs" role="tablist" aria-label="Feedback-Kategorien">
+        <button class="feedback-tab" type="button" role="tab" aria-selected="true" aria-controls="feedback-eltern" data-category="eltern" data-i18n="tab-eltern">Elternstimmen</button>
+        <button class="feedback-tab" type="button" role="tab" aria-selected="false" aria-controls="feedback-schueler" data-category="schueler" data-i18n="tab-schueler">Schülerstimmen</button>
+      </div>
+
+      <div class="feedback-carousel" aria-live="polite">
+        <div class="feedback-viewport">
+          <div class="feedback-track active" id="feedback-eltern" data-category="eltern">
+            <article class="feedback-card">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text" data-i18n="fb-eltern-1-text">„Unser Kind geht inzwischen deutlich entspannter in die Schule und lernt selbstständiger. Die klare Struktur hat den Familienalltag spürbar entlastet."</p>
+              </div>
+            </article>
+            <article class="feedback-card">
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-meta">
+              <p class="feedback-text" data-i18n="fb-eltern-2-text">„Vor den Klassenarbeiten gab es oft Stress. Jetzt weiß unser Sohn, wie er sich vorbereitet, und wir erleben deutlich weniger Druck zu Hause."</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-eltern-2-name">— Eltern von L.</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text" data-i18n="fb-eltern-3-text">„Besonders überzeugt hat uns die ruhige, verlässliche Begleitung. Unsere Tochter arbeitet konzentrierter und meldet sich im Unterricht wieder häufiger."</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-eltern-3-name">— Familie M.-K.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="feedback-track" id="feedback-schueler" data-category="schueler">
+            <article class="feedback-card">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text" data-i18n="fb-schueler-1-text">„Mathematik verstehe ich jetzt viel besser und traue mich wieder, Fragen zu stellen. Ich habe endlich einen Plan, wie ich lernen soll."</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-schueler-1-name">— Minh</span>
+                <span class="feedback-grade" data-i18n="fb-schueler-1-grade">Klasse 8</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text" data-i18n="fb-schueler-2-text">„Ich war oft unsicher vor Englischtests. Mit den Übungen fühle ich mich ruhiger und meine Noten sind Schritt für Schritt besser geworden."</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-schueler-2-name">— Aylin</span>
+                <span class="feedback-grade" data-i18n="fb-schueler-2-grade">Klasse 7</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text" data-i18n="fb-schueler-3-text">„Früher habe ich Hausaufgaben aufgeschoben. Jetzt teile ich mir die Aufgaben ein und bin deutlich schneller fertig, ohne dass ich mich ständig ablenke."</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-schueler-3-name">— Jonas</span>
+                <span class="feedback-grade" data-i18n="fb-schueler-3-grade">Klasse 10</span>
+              </div>
+            </article>
+            <article class="feedback-card">
+              <div class="feedback-stars" data-i18n-aria-label="stars-5">⭐⭐⭐⭐⭐</div>
+              <p class="feedback-text" data-i18n="fb-schueler-4-text">„[Platzhalter für eine anonymisierte Schüler*in-Stimme]"</p>
+              <div class="feedback-meta">
+                <span class="feedback-name" data-i18n="fb-schueler-4-name">— Schüler*in (anonym)</span>
+                <span class="feedback-grade" data-i18n="fb-schueler-4-grade">Klasse —</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="feedback-controls">
+          <button class="feedback-arrow feedback-prev" type="button" data-i18n-aria-label="fb-prev">‹</button>
+          <div class="feedback-dots" aria-label="Feedback-Navigation"></div>
+          <button class="feedback-arrow feedback-next" type="button" data-i18n-aria-label="fb-next">›</button>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SIGN-OFF -->
   <div class="signoff">
-    <span class="signoff-mark">Ihr nächster Schritt</span>
-    <p>Ein kostenloses Erstgespräch — um gemeinsam einzuschätzen, was Ihr Kind braucht.<br>
-    <strong>Grundschule bis Oberstufe</strong></p>
+    <span class="signoff-mark" data-i18n="signoff-mark">Ihr nächster Schritt</span>
+    <p><span data-i18n="signoff-p">Ein kostenloses Erstgespräch — um gemeinsam einzuschätzen, was Ihr Kind braucht.</span><br>
+    <strong data-i18n="signoff-strong">Grundschule bis Oberstufe</strong></p>
   </div>
 
   <!-- FOOTER NOTE -->
-  <div class="footer-note">
+  <div class="footer-note" data-i18n="footer-note">
     Alle Preise inkl. Vor- und Nachbereitung · Anfahrt
   </div>
 
 </main>
 
 <script>
-  // Toggle options on click for each program column
+  // ─── i18n translations ───────────────────────────────────────────────────
+  const translations = {
+    de: {
+      'nav-logo': 'Lernbegleitung',
+      'nav-uebersicht': 'Übersicht',
+      'nav-fragebogen': 'Fragebogen',
+      'nav-erstgespraech': 'Erstgespräch',
+      'masthead-eyebrow': 'Privates Lerncoaching · Grundschule bis Oberstufe',
+      'masthead-h1-pre': 'Individuelle',
+      'masthead-h1-em': 'Lernbegleitung',
+      'masthead-tagline': 'Mehr als Nachhilfe — ein Mentor, der Ihr Kind wirklich kennt',
+      'intro-label-1': 'Mehr als Stoff',
+      'intro-text-1': 'Wissensvermittlung, Lernorganisation, Motivation und Konzentrationstraining in einem',
+      'intro-label-2': 'Echte Verbindlichkeit',
+      'intro-text-2': 'Verlässliche Beziehung, individuelle Begleitung und klare Vereinbarungen mit Ihrem Kind',
+      'intro-label-3': 'Elternentlastung',
+      'intro-text-3': 'Sie bleiben informiert, ohne selbst täglich eingreifen zu müssen',
+      'benefits-label': 'Was diese Begleitung umfasst',
+      'ben-1': 'Wissenslücken schließen',
+      'ben-2': 'Lernstrategien entwickeln',
+      'ben-3': 'Motivation fördern',
+      'ben-4': 'Konzentration stärken',
+      'ben-5': 'Verlässliche Begleitung',
+      'ben-6': 'Entlastung für Eltern',
+      'ben-7': 'Entlastung für das Schulkind',
+      'ben-8': 'Selbstsicherer in die Schule gehen',
+      'program-h2': 'Das Programm',
+      'program-p': 'Drei Begleitungsstufen — maßgeschneidert nach dem Bedarf Ihres Kindes',
+      'prog-rec': 'Meistgewählt',
+      'prog1-level': 'Stufe I',
+      'prog1-name': 'Begleitung',
+      'prog1-desc': 'Stabilisieren · Strukturieren · Halten',
+      'prog2-level': 'Stufe II',
+      'prog2-name': 'Förderung',
+      'prog2-desc': 'Aufholen · Verbessern · Wachsen',
+      'prog3-level': 'Stufe III',
+      'prog3-name': 'Intensiv',
+      'prog3-desc': 'Durchstarten · Aufholen · Bestehen',
+      'for-title': 'Geeignet für',
+      'prog1-for-1': 'Stabile Schüler mit Bedarf an Routine',
+      'prog1-for-2': 'Regelmäßige Hausaufgabenstruktur',
+      'prog1-for-3': 'Erhalt des Leistungsniveaus',
+      'prog2-for-1': 'Bestehende Wissenslücken schließen',
+      'prog2-for-2': 'Gezielte Notenverbesserung',
+      'prog2-for-3': 'Regelmäßige strukturierte Unterstützung',
+      'prog3-for-1': 'Größere Lernrückstände',
+      'prog3-for-2': 'Prüfungs- und Klausurphasen',
+      'prog3-for-3': 'Versetzungsgefährdung',
+      'prog3-for-4': 'Engmaschige, intensive Begleitung',
+      'opt-a': 'Option A',
+      'opt-b': 'Option B',
+      'freq-1x': '1× pro Woche',
+      'freq-2x': '2× pro Woche',
+      'freq-3x': '3× pro Woche',
+      'dur-60': '60 Minuten / Einheit',
+      'dur-90': '90 Minuten / Einheit',
+      'unit-50': '50 € / Einheit',
+      'unit-65': '65 € / Einheit',
+      'mo-label': ' / Mo.',
+      'advisory-aside-label': 'Hinweis',
+      'advisory-h3': 'Zur Wahl der richtigen Einheit',
+      'advisory-p': 'Die Förderstufe bestimmt die Intensität der Begleitung — nicht die Uhr. Beide Einheitenlängen stehen in jeder Stufe zur Verfügung. Die Wahl richtet sich nach dem individuellen Lernbedarf.',
+      'advisory-60-h': '60 Minuten',
+      'advisory-60-li-1': 'Fokussiertes, konzentriertes Arbeiten',
+      'advisory-60-li-2': 'Stoff festigen und wiederholen',
+      'advisory-60-li-3': 'Hausaufgaben strukturiert begleiten',
+      'advisory-90-h': '90 Minuten',
+      'advisory-90-li-1': 'Größere Wissenslücken aufarbeiten',
+      'advisory-90-li-2': 'Mehrere Fächer oder Themen parallel',
+      'advisory-90-li-3': 'Klassenarbeitsvorbereitung',
+      'advisory-90-li-4': 'Tiefe und nachhaltige Förderung',
+      'custom-info-label': 'Individuell',
+      'custom-info-h3': 'Nichts Passendes dabei?',
+      'custom-info-p': 'Kein vordefiniertes Paket passt zu Ihren Anforderungen? Kontaktieren Sie mich gerne — wir beraten Sie individuell und erstellen gemeinsam einen pädagogisch angemessenen Plan, der genau zu Ihrem Kind passt.',
+      'feedback-h3': 'Feedback',
+      'feedback-p': 'Authentische Einblicke aus der Begleitung — geordnet nach Eltern- und Schülerstimmen.',
+      'tab-eltern': 'Elternstimmen',
+      'tab-schueler': 'Schülerstimmen',
+      'stars-5': '5 von 5 Sternen',
+      'fb-prev': 'Vorheriges Feedback',
+      'fb-next': 'Nächstes Feedback',
+      'fb-dot': 'Feedback {n} anzeigen',
+      'fb-eltern-1-text': '„Unser Kind geht inzwischen deutlich entspannter in die Schule und lernt selbstständiger. Die klare Struktur hat den Familienalltag spürbar entlastet."',
+      'fb-eltern-1-name': '— Familie M.',
+      'fb-eltern-2-text': '„Vor den Klassenarbeiten gab es oft Stress. Jetzt weiß unser Sohn, wie er sich vorbereitet, und wir erleben deutlich weniger Druck zu Hause."',
+      'fb-eltern-2-name': '— Eltern von L.',
+      'fb-eltern-3-text': '„Besonders überzeugt hat uns die ruhige, verlässliche Begleitung. Unsere Tochter arbeitet konzentrierter und meldet sich im Unterricht wieder häufiger."',
+      'fb-eltern-3-name': '— Familie M.-K.',
+      'fb-schueler-1-text': '„Mathematik verstehe ich jetzt viel besser und traue mich wieder, Fragen zu stellen. Ich habe endlich einen Plan, wie ich lernen soll."',
+      'fb-schueler-1-name': '— Minh',
+      'fb-schueler-1-grade': 'Klasse 8',
+      'fb-schueler-2-text': '„Ich war oft unsicher vor Englischtests. Mit den Übungen fühle ich mich ruhiger und meine Noten sind Schritt für Schritt besser geworden."',
+      'fb-schueler-2-name': '— Aylin',
+      'fb-schueler-2-grade': 'Klasse 7',
+      'fb-schueler-3-text': '„Früher habe ich Hausaufgaben aufgeschoben. Jetzt teile ich mir die Aufgaben ein und bin deutlich schneller fertig, ohne dass ich mich ständig ablenke."',
+      'fb-schueler-3-name': '— Jonas',
+      'fb-schueler-3-grade': 'Klasse 10',
+      'fb-schueler-4-text': '„[Platzhalter für eine anonymisierte Schüler*in-Stimme]"',
+      'fb-schueler-4-name': '— Schüler*in (anonym)',
+      'fb-schueler-4-grade': 'Klasse —',
+      'signoff-mark': 'Ihr nächster Schritt',
+      'signoff-p': 'Ein kostenloses Erstgespräch — um gemeinsam einzuschätzen, was Ihr Kind braucht.',
+      'signoff-strong': 'Grundschule bis Oberstufe',
+      'footer-note': 'Alle Preise inkl. Vor- und Nachbereitung · Anfahrt',
+    },
+    vi: {
+      'nav-logo': 'Hỗ Trợ Học Tập',
+      'nav-uebersicht': 'Tổng quan',
+      'nav-fragebogen': 'Bảng câu hỏi',
+      'nav-erstgespraech': 'Buổi tư vấn',
+      'masthead-eyebrow': 'Gia sư riêng · Từ tiểu học đến trung học phổ thông',
+      'masthead-h1-pre': 'Hỗ trợ học tập',
+      'masthead-h1-em': 'Cá nhân hóa',
+      'masthead-tagline': 'Hơn cả gia sư — người đồng hành thực sự hiểu con bạn',
+      'intro-label-1': 'Hơn cả kiến thức',
+      'intro-text-1': 'Truyền đạt kiến thức, tổ chức học tập, tạo động lực và rèn luyện sự tập trung trong một chương trình',
+      'intro-label-2': 'Cam kết thực sự',
+      'intro-text-2': 'Mối quan hệ đáng tin cậy, đồng hành cá nhân và thỏa thuận rõ ràng với con bạn',
+      'intro-label-3': 'Giảm tải cho phụ huynh',
+      'intro-text-3': 'Bạn luôn được cập nhật thông tin mà không cần can thiệp hàng ngày',
+      'benefits-label': 'Chương trình bao gồm',
+      'ben-1': 'Lấp đầy khoảng trống kiến thức',
+      'ben-2': 'Phát triển chiến lược học tập',
+      'ben-3': 'Thúc đẩy động lực',
+      'ben-4': 'Tăng cường sự tập trung',
+      'ben-5': 'Đồng hành đáng tin cậy',
+      'ben-6': 'Giảm tải cho phụ huynh',
+      'ben-7': 'Giảm tải cho học sinh',
+      'ben-8': 'Tự tin hơn đến trường',
+      'program-h2': 'Chương trình',
+      'program-p': 'Ba cấp độ đồng hành — tùy chỉnh theo nhu cầu của con bạn',
+      'prog-rec': 'Được chọn nhiều nhất',
+      'prog1-level': 'Cấp độ I',
+      'prog1-name': 'Đồng hành',
+      'prog1-desc': 'Ổn định · Tổ chức · Duy trì',
+      'prog2-level': 'Cấp độ II',
+      'prog2-name': 'Thúc đẩy',
+      'prog2-desc': 'Bắt kịp · Cải thiện · Phát triển',
+      'prog3-level': 'Cấp độ III',
+      'prog3-name': 'Chuyên sâu',
+      'prog3-desc': 'Bứt phá · Bắt kịp · Vượt qua',
+      'for-title': 'Phù hợp với',
+      'prog1-for-1': 'Học sinh ổn định cần thói quen học tập',
+      'prog1-for-2': 'Cấu trúc bài tập về nhà đều đặn',
+      'prog1-for-3': 'Duy trì mức độ thành tích',
+      'prog2-for-1': 'Lấp đầy các khoảng trống kiến thức hiện có',
+      'prog2-for-2': 'Cải thiện điểm số có mục tiêu',
+      'prog2-for-3': 'Hỗ trợ có cấu trúc đều đặn',
+      'prog3-for-1': 'Thiếu hụt kiến thức lớn hơn',
+      'prog3-for-2': 'Giai đoạn kiểm tra và thi cử',
+      'prog3-for-3': 'Nguy cơ không lên lớp',
+      'prog3-for-4': 'Đồng hành chặt chẽ và chuyên sâu',
+      'opt-a': 'Phương án A',
+      'opt-b': 'Phương án B',
+      'freq-1x': '1× mỗi tuần',
+      'freq-2x': '2× mỗi tuần',
+      'freq-3x': '3× mỗi tuần',
+      'dur-60': '60 phút / buổi',
+      'dur-90': '90 phút / buổi',
+      'unit-50': '50 € / buổi',
+      'unit-65': '65 € / buổi',
+      'mo-label': ' / tháng',
+      'advisory-aside-label': 'Lưu ý',
+      'advisory-h3': 'Về việc chọn buổi học phù hợp',
+      'advisory-p': 'Cấp độ hỗ trợ quyết định mức độ đồng hành — không phải thời gian. Cả hai độ dài buổi học đều có trong mỗi cấp độ. Lựa chọn phụ thuộc vào nhu cầu học tập cá nhân.',
+      'advisory-60-h': '60 phút',
+      'advisory-60-li-1': 'Làm việc tập trung, có trọng tâm',
+      'advisory-60-li-2': 'Củng cố và ôn lại kiến thức',
+      'advisory-60-li-3': 'Hướng dẫn bài tập về nhà có cấu trúc',
+      'advisory-90-h': '90 phút',
+      'advisory-90-li-1': 'Khắc phục các khoảng trống kiến thức lớn hơn',
+      'advisory-90-li-2': 'Nhiều môn học hoặc chủ đề song song',
+      'advisory-90-li-3': 'Chuẩn bị cho bài kiểm tra trên lớp',
+      'advisory-90-li-4': 'Hỗ trợ sâu và bền vững',
+      'custom-info-label': 'Cá nhân hóa',
+      'custom-info-h3': 'Không tìm thấy gì phù hợp?',
+      'custom-info-p': 'Không có gói nào phù hợp với yêu cầu của bạn? Hãy liên hệ với chúng tôi — chúng tôi sẽ tư vấn cá nhân và cùng tạo ra một kế hoạch giáo dục phù hợp với con bạn.',
+      'feedback-h3': 'Phản hồi',
+      'feedback-p': 'Những nhận xét chân thực từ quá trình đồng hành — được sắp xếp theo ý kiến phụ huynh và học sinh.',
+      'tab-eltern': 'Ý kiến phụ huynh',
+      'tab-schueler': 'Ý kiến học sinh',
+      'stars-5': '5 trên 5 sao',
+      'fb-prev': 'Phản hồi trước',
+      'fb-next': 'Phản hồi tiếp theo',
+      'fb-dot': 'Hiển thị phản hồi {n}',
+      'fb-eltern-1-text': '„Con chúng tôi giờ đây đến trường thoải mái hơn nhiều và học tập độc lập hơn. Cấu trúc rõ ràng đã giảm bớt đáng kể gánh nặng trong cuộc sống gia đình."',
+      'fb-eltern-1-name': '— Gia đình M.',
+      'fb-eltern-2-text': '„Trước đây thường có căng thẳng trước các bài kiểm tra. Giờ đây con trai chúng tôi biết cách chuẩn bị và chúng tôi thấy ít áp lực hơn ở nhà."',
+      'fb-eltern-2-name': '— Phụ huynh của L.',
+      'fb-eltern-3-text': '„Điều thuyết phục chúng tôi nhất là sự đồng hành bình tĩnh và đáng tin cậy. Con gái chúng tôi tập trung hơn và phát biểu trong lớp thường xuyên hơn."',
+      'fb-eltern-3-name': '— Gia đình M.-K.',
+      'fb-schueler-1-text': '„Bây giờ tôi hiểu Toán học tốt hơn nhiều và dám đặt câu hỏi trở lại. Tôi cuối cùng đã có một kế hoạch để học tập."',
+      'fb-schueler-1-name': '— Minh',
+      'fb-schueler-1-grade': 'Lớp 8',
+      'fb-schueler-2-text': '„Tôi thường lo lắng trước các bài kiểm tra tiếng Anh. Với các bài tập này, tôi cảm thấy bình tĩnh hơn và điểm số của tôi đã cải thiện từng bước."',
+      'fb-schueler-2-name': '— Aylin',
+      'fb-schueler-2-grade': 'Lớp 7',
+      'fb-schueler-3-text': '„Trước đây tôi hay trì hoãn bài tập về nhà. Bây giờ tôi phân chia công việc và hoàn thành nhanh hơn nhiều mà không bị phân tâm."',
+      'fb-schueler-3-name': '— Jonas',
+      'fb-schueler-3-grade': 'Lớp 10',
+      'fb-schueler-4-text': '„[Chỗ dành cho phản hồi ẩn danh của học sinh]"',
+      'fb-schueler-4-name': '— Học sinh (ẩn danh)',
+      'fb-schueler-4-grade': 'Lớp —',
+      'signoff-mark': 'Bước tiếp theo của bạn',
+      'signoff-p': 'Một buổi tư vấn miễn phí — để cùng nhau xác định những gì con bạn cần.',
+      'signoff-strong': 'Từ tiểu học đến trung học phổ thông',
+      'footer-note': 'Tất cả giá bao gồm chuẩn bị và theo dõi · Di chuyển',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'de';
+
+  function setLanguage(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang === 'de' ? 'de' : 'vi';
+
+    // Update all data-i18n text content
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang][key] !== undefined) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Update all data-i18n-aria-label attributes
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+      const key = el.dataset.i18nAriaLabel;
+      if (translations[lang][key] !== undefined) {
+        el.setAttribute('aria-label', translations[lang][key]);
+      }
+    });
+
+    // Update lang switcher button states
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('lang-active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    // Update existing carousel dot aria-labels (in-place, no inner scope needed)
+    const dotLabel = translations[lang]['fb-dot'] || 'Feedback {n} anzeigen';
+    document.querySelectorAll('.feedback-dot').forEach((dot, i) => {
+      dot.setAttribute('aria-label', dotLabel.replace('{n}', i + 1));
+    });
+  }
+
+  // ─── Language switcher buttons ───────────────────────────────────────────
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  // ─── Program column toggle on click / hover ──────────────────────────────
   const progCols = document.querySelectorAll('.prog-col');
-  
+
   progCols.forEach(col => {
     col.addEventListener('click', function() {
-      // Close all other columns
-      progCols.forEach(c => {
-        if (c !== this) {
-          c.classList.remove('active');
-        }
-      });
-      // Toggle this column
+      progCols.forEach(c => { if (c !== this) c.classList.remove('active'); });
       this.classList.toggle('active');
     });
 
-    // Also support hover on desktop
     col.addEventListener('mouseenter', function() {
       progCols.forEach(c => c.classList.remove('active'));
       this.classList.add('active');
     });
   });
 
-  // Close options when mouse leaves the entire grid
   const grid = document.querySelector('.program-grid');
   grid.addEventListener('mouseleave', function() {
     progCols.forEach(col => col.classList.remove('active'));
   });
 
-
-
-  // Feedback carousel (Elternstimmen & Schülerstimmen)
+  // ─── Feedback carousel ───────────────────────────────────────────────────
   const feedbackSection = document.querySelector('.feedback-section');
   if (feedbackSection) {
     const feedbackTabs = Array.from(feedbackSection.querySelectorAll('.feedback-tab'));
@@ -1201,18 +1479,13 @@
     const getActiveCards = () => Array.from(getActiveTrack().querySelectorAll('.feedback-card'));
 
     const stopAutoSwitch = () => {
-      if (autoSwitch) {
-        clearInterval(autoSwitch);
-        autoSwitch = null;
-      }
+      if (autoSwitch) { clearInterval(autoSwitch); autoSwitch = null; }
     };
 
     const startAutoSwitch = () => {
       if (autoPausedByUser) return;
       stopAutoSwitch();
-      autoSwitch = setInterval(() => {
-        goToSlide(activeIndex + 1);
-      }, autoSwitchDelay);
+      autoSwitch = setInterval(() => goToSlide(activeIndex + 1), autoSwitchDelay);
     };
 
     const pauseAutoSwitchAfterManualAction = () => {
@@ -1222,11 +1495,12 @@
 
     const renderDots = (cardsCount) => {
       feedbackDots.innerHTML = '';
+      const dotLabel = translations[currentLang]['fb-dot'] || 'Feedback {n} anzeigen';
       for (let i = 0; i < cardsCount; i += 1) {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = `feedback-dot${i === activeIndex ? ' active' : ''}`;
-        dot.setAttribute('aria-label', `Feedback ${i + 1} anzeigen`);
+        dot.setAttribute('aria-label', dotLabel.replace('{n}', i + 1));
         dot.setAttribute('aria-current', i === activeIndex ? 'true' : 'false');
         dot.dataset.index = String(i);
         feedbackDots.appendChild(dot);
@@ -1247,9 +1521,7 @@
         trackCards.forEach(card => {
           card.style.flex = isActive ? `0 0 ${slideWidth}%` : '0 0 100%';
         });
-        if (!isActive) {
-          track.style.transform = 'translateX(0)';
-        }
+        if (!isActive) track.style.transform = 'translateX(0)';
       });
 
       activeTrack.style.transform = `translateX(-${activeIndex * slideWidth}%)`;
@@ -1259,56 +1531,35 @@
     const goToSlide = (nextIndex, isManual = false) => {
       const cardsCount = getActiveCards().length;
       if (!cardsCount) return;
-
       activeIndex = (nextIndex + cardsCount) % cardsCount;
       renderCarousel();
-
-      if (isManual) {
-        pauseAutoSwitchAfterManualAction();
-      }
+      if (isManual) pauseAutoSwitchAfterManualAction();
     };
 
     const switchCategory = (category, isManual = false) => {
-      if (!category || category === activeCategory) {
-        return;
-      }
-
+      if (!category || category === activeCategory) return;
       activeCategory = category;
       activeIndex = 0;
-
       feedbackTabs.forEach(tab => {
         const isSelected = tab.dataset.category === activeCategory;
         tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
       });
-
       renderCarousel();
-
-      if (isManual) {
-        pauseAutoSwitchAfterManualAction();
-      }
+      if (isManual) pauseAutoSwitchAfterManualAction();
     };
 
     feedbackTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        switchCategory(tab.dataset.category, true);
-      });
+      tab.addEventListener('click', () => switchCategory(tab.dataset.category, true));
     });
 
-    feedbackPrev.addEventListener('click', () => {
-      goToSlide(activeIndex - 1, true);
-    });
-
-    feedbackNext.addEventListener('click', () => {
-      goToSlide(activeIndex + 1, true);
-    });
+    feedbackPrev.addEventListener('click', () => goToSlide(activeIndex - 1, true));
+    feedbackNext.addEventListener('click', () => goToSlide(activeIndex + 1, true));
 
     feedbackDots.addEventListener('click', (event) => {
       const dot = event.target.closest('.feedback-dot');
       if (!dot) return;
-
       const targetIndex = Number(dot.dataset.index);
       if (Number.isNaN(targetIndex)) return;
-
       goToSlide(targetIndex, true);
     });
 
@@ -1319,20 +1570,17 @@
     feedbackViewport.addEventListener('touchend', (event) => {
       const touchEndX = event.changedTouches[0].clientX;
       const swipeDistance = touchStartX - touchEndX;
-      const swipeThreshold = 40;
-
-      if (Math.abs(swipeDistance) < swipeThreshold) return;
-
-      if (swipeDistance > 0) {
-        goToSlide(activeIndex + 1, true);
-      } else {
-        goToSlide(activeIndex - 1, true);
-      }
+      if (Math.abs(swipeDistance) < 40) return;
+      if (swipeDistance > 0) goToSlide(activeIndex + 1, true);
+      else goToSlide(activeIndex - 1, true);
     }, { passive: true });
 
     renderCarousel();
     startAutoSwitch();
   }
+
+  // ─── Apply saved/initial language ────────────────────────────────────────
+  setLanguage(currentLang);
 </script>
 
 </body>
