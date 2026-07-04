@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individuelle Lernbegleitung – Luxus Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1e1e20;
+    --charcoal-2: #2a2a2d;
+    --charcoal-3: #343438;
+    --charcoal-light: #4a4a50;
+    --champagne: #c9a97c;
+    --champagne-light: #dfc49e;
+    --champagne-pale: #f5ede0;
+    --champagne-xpale: #faf6f0;
+    --off-white: #f8f5f0;
+    --white: #ffffff;
+    --text: #1e1e20;
+    --text-mid: #4a4a50;
+    --text-muted: #8a8a95;
+    --border-dark: #3a3a3e;
+    --border-light: #ddd5c5;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(180deg, #fdfbf7 0%, #f8f5f0 45%, #f5efe6 100%);
+    color: var(--text);
+    min-height: 100vh;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  html { scroll-behavior: smooth; }
+  img, svg, video { max-width: 100%; height: auto; }
+
+  nav {
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  }
+
+  .nav-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-menu a {
+    font-size: 0.92rem;
+    text-decoration: none;
+    color: var(--text-mid);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.18s ease;
+    position: relative;
+  }
+
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--champagne);
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+
+  .nav-menu a:hover::after,
+  .nav-menu a:focus-visible::after,
+  .nav-menu a.active::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a:focus-visible,
+  .nav-menu a.active {
+    color: var(--charcoal);
+    outline: none;
+  }
+
+  .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    justify-self: end;
+  }
+
+  .lang-btn {
+    appearance: none;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    color: var(--text-mid);
+    border-radius: 999px;
+    padding: 0.42rem 0.7rem;
+    font: inherit;
+    font-size: 0.76rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .lang-btn:hover,
+  .lang-btn:focus-visible {
+    border-color: var(--champagne);
+    color: var(--charcoal);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .lang-btn.lang-active {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: var(--champagne-light);
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .masthead {
+    text-align: center;
+    padding: clamp(2rem, 5vw, 4rem) 0 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .masthead::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--champagne);
+    margin: 1.5rem auto 0;
+  }
+
+  .masthead-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 1rem;
+  }
+
+  .masthead h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+    margin-bottom: 0.75rem;
+  }
+
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--champagne);
+  }
+
+  .masthead-tagline {
+    max-width: 42rem;
+    margin: 0 auto;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    font-weight: 300;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    line-height: 1.7;
+  }
+
+  .benefits-section {
+    margin-bottom: 2.75rem;
+    text-align: center;
+  }
+
+  .benefits-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .benefits-flow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  .ben-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    color: var(--text-mid);
+    font-size: 0.86rem;
+    font-weight: 400;
+    padding: 0.55rem 0.9rem;
+    letter-spacing: 0.02em;
+    min-height: 44px;
+    border-radius: 10px;
+  }
+
+  .ben-tag::before {
+    content: '•';
+    color: var(--champagne);
+    font-size: 1rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .usp-section {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background: var(--charcoal);
+    border-radius: 18px;
+    padding: clamp(1.4rem, 3vw, 1.9rem) clamp(1rem, 3vw, 1.75rem);
+    margin-bottom: 2.75rem;
+    box-shadow: 0 20px 45px rgba(20, 20, 22, 0.18);
+  }
+
+  .usp-col {
+    text-align: center;
+    padding: 0 1.1rem;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .usp-col:last-child { border-right: 0; }
+
+  .usp-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .usp-label {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 0.55rem;
+  }
+
+  .usp-col p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  @media (max-width: 640px) {
+    .usp-section { grid-template-columns: 1fr; }
+    .usp-col {
+      border-right: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 1.1rem 0.25rem;
+    }
+    .usp-col:last-child { border-bottom: 0; }
+  }
+
+  .feedback-toggle {
+    display: inline-flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0 auto 1.5rem;
+    background: var(--champagne-xpale);
+    border: 1px solid var(--border-light);
+    border-radius: 999px;
+    padding: 0.3rem;
+  }
+
+  .feedback-toggle-wrap { text-align: center; }
+
+  .feedback-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-mid);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .feedback-btn.feedback-active {
+    background: var(--charcoal);
+    color: var(--champagne-light);
+  }
+
+  .feedback-card {
+    position: relative;
+    background: var(--champagne-xpale);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    padding: clamp(1.75rem, 4vw, 2.2rem) clamp(1.5rem, 4vw, 2.4rem) clamp(1.9rem, 4vw, 2.4rem);
+    box-shadow: 0 16px 40px rgba(30, 30, 32, 0.07);
+    max-width: 42rem;
+    margin: 0 auto 1.1rem;
+    text-align: left;
+    transition: opacity 0.2s ease;
+  }
+
+  .feedback-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.3rem;
+    left: 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    color: var(--champagne);
+    line-height: 1;
+  }
+
+  .feedback-stars {
+    color: #e0a92e;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    margin: 1.7rem 0 1.1rem;
+  }
+
+  .feedback-quote-text {
+    font-size: 0.98rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .feedback-quote-name {
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .feedback-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+  }
+
+  .feedback-arrow {
+    appearance: none;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    color: var(--text-mid);
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all 0.2s ease;
+  }
+
+  .feedback-arrow:hover,
+  .feedback-arrow:focus-visible {
+    border-color: var(--champagne);
+    color: var(--charcoal);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .feedback-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .feedback-dot {
+    appearance: none;
+    padding: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border-light);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .feedback-dot.feedback-dot-active {
+    background: var(--champagne);
+    transform: scale(1.2);
+  }
+
+  .program-header,
+  .timeline-head,
+  .signoff,
+  .footer-note { text-align: center; }
+
+  .program-header {
+    margin-bottom: 1.5rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .program-header h2,
+  .timeline-head h2,
+  .advisory-content h3,
+  .custom-info-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: var(--charcoal);
+    letter-spacing: 0.02em;
+  }
+
+  .program-header h2 { font-size: clamp(1.8rem, 4vw, 2.3rem); }
+  .timeline-head h2 { font-size: clamp(1.8rem, 4vw, 2.2rem); margin-bottom: 0.55rem; }
+
+  .program-header p,
+  .timeline-head p,
+  .advisory-content p,
+  .custom-info-content p,
+  .signoff p,
+  .footer-note {
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-bottom: 2.75rem;
+    border: 1px solid var(--border-light);
+    background: rgba(255,255,255,0.5);
+  }
+
+  .prog-col {
+    border-right: 1px solid var(--border-light);
+    display: grid;
+    grid-template-rows: auto auto auto;
+    background: rgba(255,255,255,0.82);
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  }
+
+  .prog-col:last-child { border-right: 0; }
+
+  .prog-col.popped {
+    transform: scale(1.06);
+    z-index: 30;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(20, 20, 22, 0.28);
+    border: 1px solid var(--border-light);
+  }
+
+  .prog-col.featured.popped {
+    border-color: var(--charcoal);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .program-grid { overflow: visible; }
+    .prog-col:hover {
+      transform: scale(1.06);
+      z-index: 30;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(20, 20, 22, 0.28);
+    }
+  }
+
+  .prog-col-head {
+    padding: 1.4rem 1.25rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--white);
+    position: relative;
+    min-height: 115px;
+  }
+
+  .prog-col.featured .prog-col-head {
+    background: var(--charcoal);
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+
+  .prog-rec {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--champagne);
+    color: var(--charcoal);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.7rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .prog-level {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 0.45rem;
+    line-height: 1.2;
+  }
+
+  .prog-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.2rem;
+  }
+
+  .prog-col.featured .prog-name { color: var(--white); }
+
+  .prog-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .prog-col.featured .prog-desc { color: rgba(255,255,255,0.6); }
+
+  .prog-col-for {
+    padding: 1.1rem 1.25rem 1.25rem;
+    background: var(--champagne-xpale);
+    border-bottom: 1px solid var(--border-light);
+    min-height: 175px;
+  }
+
+  .prog-col.featured .prog-col-for {
+    background: var(--charcoal-2);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .for-title {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.7rem;
+  }
+
+  .prog-col.featured .for-title { color: rgba(255,255,255,0.45); }
+
+  .prog-for-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .prog-for-list li {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .prog-col.featured .prog-for-list li { color: rgba(255,255,255,0.76); }
+
+  .prog-for-list li::before {
+    content: '—';
+    color: var(--champagne);
+    flex-shrink: 0;
+  }
+
+  .prog-col-opts {
+    background: var(--white);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+    padding: 0 1.25rem;
+  }
+
+  .prog-col.featured .prog-col-opts {
+    background: var(--charcoal-3);
+    color: rgba(255,255,255,0.82);
+  }
+
+  .prog-col.active .prog-col-opts {
+    max-height: 420px;
+    opacity: 1;
+    padding: 1.1rem 1.25rem 1.25rem;
+  }
+
+  .opt-row + .opt-row {
+    margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .prog-col.featured .opt-row + .opt-row {
+    border-top-color: rgba(255,255,255,0.08);
+  }
+
+  .opt-row-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .opt-row-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--champagne);
+  }
+
+  .opt-row-freq,
+  .opt-row-duration,
+  .opt-unit,
+  .opt-month-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .prog-col.featured .opt-row-freq,
+  .prog-col.featured .opt-row-duration,
+  .prog-col.featured .opt-unit,
+  .prog-col.featured .opt-month-label {
+    color: rgba(255,255,255,0.55);
+  }
+
+  .opt-row-duration { margin-bottom: 0.45rem; }
+
+  .prog-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    max-height: 0;
+    padding: 0 1rem;
+    overflow: hidden;
+    opacity: 0;
+    background: var(--champagne-xpale);
+    border-bottom: 0 solid var(--border-light);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    cursor: pointer;
+    transition: opacity 0.6s ease, max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .prog-col.show-hint .prog-hint,
+  .prog-col.active .prog-hint {
+    max-height: 40px;
+    padding: 0.6rem 1rem;
+    opacity: 1;
+    border-bottom-width: 1px;
+  }
+
+  .prog-col.featured .prog-hint {
+    background: var(--charcoal-2);
+    color: var(--champagne-light);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .prog-hint-text { display: none; }
+  .prog-hint-collapsed { display: inline; }
+  .prog-col.active .prog-hint-collapsed { display: none; }
+  .prog-col.active .prog-hint-expanded { display: inline; }
+
+  .prog-hint-icon {
+    display: inline-block;
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .prog-col.active .prog-hint-icon { transform: rotate(180deg); }
+
+  @media (hover: none), (pointer: coarse) {
+    .prog-hint {
+      max-height: 40px;
+      padding: 0.6rem 1rem;
+      opacity: 0.75;
+      border-bottom-width: 1px;
+    }
+  }
+
+
+  .opt-pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .prog-col.featured .opt-pricing {
+    border-top-color: rgba(255,255,255,0.08);
+  }
+
+  .opt-month {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+
+  .prog-col.featured .opt-month { color: var(--champagne-light); }
+
+  .price-amount {
+    display: inline-block;
+    filter: blur(4px);
+  }
+
+  .advisory,
+  .custom-info,
+  .timeline-section {
+    margin-bottom: 2.75rem;
+    padding: clamp(1.25rem, 3vw, 2.2rem);
+    border-radius: 20px;
+  }
+
+  .advisory,
+  .custom-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    border: 1px solid var(--border-light);
+  }
+
+  .advisory {
+    background: var(--white);
+    border-top: 2px solid var(--champagne);
+  }
+
+  .custom-info {
+    background: var(--champagne-pale);
+    border-left: 4px solid var(--champagne);
+  }
+
+  .advisory-aside,
+  .custom-info-aside {
+    width: 76px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .advisory-roman,
+  .custom-info-icon,
+  .signoff-mark {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--champagne);
+  }
+
+  .advisory-roman,
+  .custom-info-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .advisory-aside-label,
+  .custom-info-label,
+  .timeline-kicker {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .advisory-content h3,
+  .custom-info-content h3 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-section {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(250,246,240,0.96));
+    border: 1px solid var(--border-light);
+    box-shadow: 0 16px 40px rgba(30, 30, 32, 0.06);
+  }
+
+  .timeline-kicker {
+    color: var(--champagne);
+    margin-bottom: 0.7rem;
+  }
+
+  .timeline-flow {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .timeline-step {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    padding: 1.2rem;
+    box-shadow: 0 10px 24px rgba(30, 30, 32, 0.06);
+  }
+
+  .timeline-step-index {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    background: linear-gradient(180deg, var(--champagne-light), var(--champagne-pale));
+    border: 1px solid rgba(201,169,124,0.45);
+    margin-bottom: 0.9rem;
+  }
+
+  .timeline-step h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.45rem;
+  }
+
+  .timeline-step p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.8rem 1.4rem;
+    background: var(--charcoal);
+    color: var(--champagne-light);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cta-link::after { content: '→'; font-size: 1rem; }
+
+  .cta-link:hover {
+    background: var(--charcoal-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(30, 30, 32, 0.12);
+  }
+
+  .signoff { padding: 1.5rem 0 0.75rem; }
+
+  .signoff-mark {
+    display: block;
+    font-size: 1.6rem;
+    font-style: italic;
+    margin-bottom: 0.45rem;
+  }
+
+  .signoff p {
+    max-width: 40rem;
+    margin: 0 auto;
+    font-size: 0.95rem;
+  }
+
+  .footer-note {
+    padding-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    .nav-wrap {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .lang-switcher { justify-self: center; }
+
+    .program-grid,
+    .timeline-flow {
+      grid-template-columns: 1fr;
+    }
+
+    .prog-col {
+      border-right: 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .prog-col:last-child { border-bottom: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 1.5rem 1rem 3rem; }
+
+    .nav-menu {
+      width: 100%;
+      gap: 0.75rem 1rem;
+    }
+
+    .advisory,
+    .custom-info {
+      grid-template-columns: 1fr;
+    }
+
+    .advisory-aside,
+    .custom-info-aside {
+      width: auto;
+      text-align: left;
+    }
+
+    .prog-rec {
+      position: static;
+      transform: none;
+      display: inline-block;
+      margin-bottom: 0.7rem;
+    }
+
+    .masthead h1 {
+      font-size: clamp(2rem, 11vw, 2.8rem);
+    }
+
+    .masthead-tagline,
+    .timeline-step p,
+    .prog-desc,
+    .signoff p {
+      font-size: 0.92rem;
+    }
+
+    .cta-link,
+    .lang-switcher {
+      width: 100%;
+    }
+
+    .lang-switcher {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo" data-i18n="nav-logo">Lernbegleitung</a>
+      <ul class="nav-menu">
+        <li><a href="#uebersicht" class="active" data-i18n="nav-overview">Übersicht</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform" target="_blank" rel="noopener noreferrer" data-i18n="nav-questionnaire">Fragebogen</a></li>
+        <li><a href="erstgespraech.html" data-i18n="nav-consultation">Erstgespräch</a></li>
+        <li><a href="#feedback" data-i18n="nav-feedback">Feedback</a></li>
+      </ul>
+      <div class="lang-switcher" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn lang-active" data-lang="de">🇩🇪 DEU</button>
+        <button type="button" class="lang-btn" data-lang="vi">🇻🇳 VI</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="masthead scroll-reveal">
+      <div class="masthead-eyebrow" data-i18n="hero-eyebrow">Individuelle Lernbegleitung</div>
+      <h1><span data-i18n="hero-title-1">Maßgeschneiderte Unterstützung für</span> <em data-i18n="hero-title-2">Ihr Kind</em></h1>
+      <p class="masthead-tagline" data-i18n="hero-tagline">Mehr als Nachhilfe — ein Mentor, der Ihr Kind wirklich kennt.</p>
+    </section>
+
+    <section class="usp-section scroll-reveal">
+      <div class="usp-col">
+        <span class="usp-icon" aria-hidden="true">🎯</span>
+        <div class="usp-label" data-i18n="usp-1-label">Mehr als Stoff</div>
+        <p data-i18n="usp-1-text">Wissensvermittlung, Lernorganisation, Motivation und Konzentrationstraining in einem</p>
+      </div>
+      <div class="usp-col">
+        <span class="usp-icon" aria-hidden="true">🤝</span>
+        <div class="usp-label" data-i18n="usp-2-label">Echte Verbindlichkeit</div>
+        <p data-i18n="usp-2-text">Verlässliche Beziehung, individuelle Begleitung und klare Vereinbarungen mit Ihrem Kind</p>
+      </div>
+      <div class="usp-col">
+        <span class="usp-icon" aria-hidden="true">🧘</span>
+        <div class="usp-label" data-i18n="usp-3-label">Elternentlastung</div>
+        <p data-i18n="usp-3-text">Sie bleiben informiert, ohne selbst täglich eingreifen zu müssen</p>
+      </div>
+    </section>
+
+    <section class="benefits-section scroll-reveal" id="uebersicht">
+      <div class="benefits-label" data-i18n="benefits-label">Was diese Begleitung umfasst</div>
+      <div class="benefits-flow">
+        <span class="ben-tag" data-i18n="benefit-1">Wissenslücken schließen</span>
+        <span class="ben-tag" data-i18n="benefit-2">Lernstrategien entwickeln</span>
+        <span class="ben-tag" data-i18n="benefit-3">Motivation fördern</span>
+        <span class="ben-tag" data-i18n="benefit-4">Konzentration stärken</span>
+        <span class="ben-tag" data-i18n="benefit-5">Verlässliche Begleitung</span>
+        <span class="ben-tag" data-i18n="benefit-6">Entlastung für Eltern</span>
+        <span class="ben-tag" data-i18n="benefit-7">Entlastung für das Schulkind</span>
+        <span class="ben-tag" data-i18n="benefit-8">Selbstsicherer in die Schule gehen</span>
+      </div>
+    </section>
+
+    <section class="program-header scroll-reveal">
+      <h2 data-i18n="program-title">Das Programm</h2>
+      <p data-i18n="program-subtitle">Drei Begleitungsstufen — maßgeschneidert nach dem Bedarf Ihres Kindes</p>
+    </section>
+
+    <section class="program-grid scroll-reveal" aria-label="Programme">
+      <article class="prog-col">
+        <div class="prog-col-head">
+          <div class="prog-level" data-i18n="level-1">Stufe I</div>
+          <h3 class="prog-name" data-i18n="prog-1-name">Begleitung</h3>
+          <p class="prog-desc" data-i18n="prog-1-desc">Stabilisieren · Strukturieren · Halten</p>
+        </div>
+        <div class="prog-col-for">
+          <div class="for-title" data-i18n="for-title">Geeignet für</div>
+          <ul class="prog-for-list">
+            <li data-i18n="prog-1-fit-1">Stabile Schüler mit Bedarf an Routine</li>
+            <li data-i18n="prog-1-fit-2">Regelmäßige Hausaufgabenstruktur</li>
+            <li data-i18n="prog-1-fit-3">Erhalt des Leistungsniveaus</li>
+          </ul>
+        </div>
+        <div class="prog-hint">
+          <span class="prog-hint-text prog-hint-collapsed" data-i18n="prog-hint-show">Preise ansehen</span>
+          <span class="prog-hint-text prog-hint-expanded" data-i18n="prog-hint-hide">Preise ausblenden</span>
+          <span class="prog-hint-icon" aria-hidden="true">⌄</span>
+        </div>
+        <div class="prog-col-opts">
+          <div class="opt-row">
+            <div class="opt-row-header">
+              <div class="opt-row-label" data-i18n="option-a">Option A</div>
+              <div class="opt-row-freq" data-i18n="prog-1-opt-a-freq">1x pro Woche</div>
+            </div>
+            <div class="opt-row-duration" data-i18n="prog-1-opt-a-duration">60 Minuten / Einheit</div>
+            <div class="opt-pricing"><span class="opt-unit"><span class="price-amount">€€</span> / Einheit</span><span class="opt-month"><span class="price-amount">€€€</span><span class="opt-month-label" data-i18n="per-month"> / Mo.</span></span></div>
+          </div>
+          <div class="opt-row">
+            <div class="opt-row-header">
+              <div class="opt-row-label" data-i18n="option-b">Option B</div>
+              <div class="opt-row-freq" data-i18n="prog-1-opt-b-freq">1x pro Woche</div>
+            </div>
+            <div class="opt-row-duration" data-i18n="prog-1-opt-b-duration">90 Minuten / Einheit</div>
+            <div class="opt-pricing"><span class="opt-unit"><span class="price-amount">€€</span> / Einheit</span><span class="opt-month"><span class="price-amount">€€€</span><span class="opt-month-label" data-i18n="per-month"> / Mo.</span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prog-col featured">
+        <div class="prog-col-head">
+          <div class="prog-rec" data-i18n="recommended">Meistgewählt</div>
+          <div class="prog-level" data-i18n="level-2">Stufe II</div>
+          <h3 class="prog-name" data-i18n="prog-2-name">Förderung</h3>
+          <p class="prog-desc" data-i18n="prog-2-desc">Aufholen · Verbessern · Wachsen</p>
+        </div>
+        <div class="prog-col-for">
+          <div class="for-title" data-i18n="for-title">Geeignet für</div>
+          <ul class="prog-for-list">
+            <li data-i18n="prog-2-fit-1">Bestehende Wissenslücken schließen</li>
+            <li data-i18n="prog-2-fit-2">Gezielte Notenverbesserung</li>
+            <li data-i18n="prog-2-fit-3">Regelmäßige strukturierte Unterstützung</li>
+          </ul>
+        </div>
+        <div class="prog-hint">
+          <span class="prog-hint-text prog-hint-collapsed" data-i18n="prog-hint-show">Preise ansehen</span>
+          <span class="prog-hint-text prog-hint-expanded" data-i18n="prog-hint-hide">Preise ausblenden</span>
+          <span class="prog-hint-icon" aria-hidden="true">⌄</span>
+        </div>
+        <div class="prog-col-opts">
+          <div class="opt-row">
+            <div class="opt-row-header">
+              <div class="opt-row-label" data-i18n="option-a">Option A</div>
+              <div class="opt-row-freq" data-i18n="prog-2-opt-a-freq">2x pro Woche</div>
+            </div>
+            <div class="opt-row-duration" data-i18n="prog-2-opt-a-duration">60 Minuten / Einheit</div>
+            <div class="opt-pricing"><span class="opt-unit"><span class="price-amount">€€</span> / Einheit</span><span class="opt-month"><span class="price-amount">€€€</span><span class="opt-month-label" data-i18n="per-month"> / Mo.</span></span></div>
+          </div>
+          <div class="opt-row">
+            <div class="opt-row-header">
+              <div class="opt-row-label" data-i18n="option-b">Option B</div>
+              <div class="opt-row-freq" data-i18n="prog-2-opt-b-freq">2x pro Woche</div>
+            </div>
+            <div class="opt-row-duration" data-i18n="prog-2-opt-b-duration">90 Minuten / Einheit</div>
+            <div class="opt-pricing"><span class="opt-unit"><span class="price-amount">€€</span> / Einheit</span><span class="opt-month"><span class="price-amount">€€€</span><span class="opt-month-label" data-i18n="per-month"> / Mo.</span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="prog-col">
+        <div class="prog-col-head">
+          <div class="prog-level" data-i18n="level-3">Stufe III</div>
+          <h3 class="prog-name" data-i18n="prog-3-name">Intensiv</h3>
+          <p class="prog-desc" data-i18n="prog-3-desc">Durchstarten · Aufholen · Bestehen</p>
+        </div>
+        <div class="prog-col-for">
+          <div class="for-title" data-i18n="for-title">Geeignet für</div>
+          <ul class="prog-for-list">
+            <li data-i18n="prog-3-fit-1">Größere Lernrückstände</li>
+            <li data-i18n="prog-3-fit-2">Prüfungs- und Klausurphasen</li>
+            <li data-i18n="prog-3-fit-3">Versetzungsgefährdung</li>
+            <li data-i18n="prog-3-fit-4">Engmaschige, intensive Begleitung</li>
+          </ul>
+        </div>
+        <div class="prog-hint">
+          <span class="prog-hint-text prog-hint-collapsed" data-i18n="prog-hint-show">Preise ansehen</span>
+          <span class="prog-hint-text prog-hint-expanded" data-i18n="prog-hint-hide">Preise ausblenden</span>
+          <span class="prog-hint-icon" aria-hidden="true">⌄</span>
+        </div>
+        <div class="prog-col-opts">
+          <div class="opt-row">
+            <div class="opt-row-header">
+              <div class="opt-row-label" data-i18n="option-a">Option A</div>
+              <div class="opt-row-freq" data-i18n="prog-3-opt-a-freq">3x pro Woche</div>
+            </div>
+            <div class="opt-row-duration" data-i18n="prog-3-opt-a-duration">60 Minuten / Einheit</div>
+            <div class="opt-pricing"><span class="opt-unit"><span class="price-amount">€€</span> / Einheit</span><span class="opt-month"><span class="price-amount">€€€</span><span class="opt-month-label" data-i18n="per-month"> / Mo.</span></span></div>
+          </div>
+          <div class="opt-row">
+            <div class="opt-row-header">
+              <div class="opt-row-label" data-i18n="option-b">Option B</div>
+              <div class="opt-row-freq" data-i18n="prog-3-opt-b-freq">3x pro Woche</div>
+            </div>
+            <div class="opt-row-duration" data-i18n="prog-3-opt-b-duration">90 Minuten / Einheit</div>
+            <div class="opt-pricing"><span class="opt-unit"><span class="price-amount">€€</span> / Einheit</span><span class="opt-month"><span class="price-amount">€€€</span><span class="opt-month-label" data-i18n="per-month"> / Mo.</span></span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="advisory scroll-reveal">
+      <div class="advisory-aside">
+        <span class="advisory-roman">I</span>
+        <div class="advisory-aside-label" data-i18n="hint-label">Hinweis</div>
+      </div>
+      <div class="advisory-content">
+        <h3 data-i18n="hint-title">Persönlich statt standardisiert</h3>
+        <p data-i18n="hint-text">Jede Lernbegleitung wird individuell geplant. Inhalte, Tempo und Ziele richten sich nach dem tatsächlichen Bedarf Ihres Kindes.</p>
+      </div>
+    </section>
+
+    <section class="timeline-section scroll-reveal">
+      <div class="timeline-head">
+        <div class="timeline-kicker" data-i18n="timeline-kicker">Ablauf</div>
+        <h2 data-i18n="timeline-title">So starten wir</h2>
+        <p data-i18n="timeline-text">Vom ersten Kontakt bis zur laufenden Begleitung – transparent und unkompliziert.</p>
+      </div>
+      <div class="timeline-flow">
+        <article class="timeline-step"><div class="timeline-step-index">1</div><h3 data-i18n="step-1-title">Anfrage</h3><p data-i18n="step-1-text">Sie senden eine kurze Anfrage oder füllen den Fragebogen aus.</p></article>
+        <article class="timeline-step"><div class="timeline-step-index">2</div><h3 data-i18n="step-2-title">Erstgespräch</h3><p data-i18n="step-2-text">Wir besprechen Situation, Ziele und passende Formate.</p></article>
+        <article class="timeline-step"><div class="timeline-step-index">3</div><h3 data-i18n="step-3-title">Planung</h3><p data-i18n="step-3-text">Sie erhalten einen klaren Vorschlag für die weitere Begleitung.</p></article>
+        <article class="timeline-step"><div class="timeline-step-index">4</div><h3 data-i18n="step-4-title">Beginn</h3><p data-i18n="step-4-text">Die Lernbegleitung startet strukturiert und individuell abgestimmt.</p></article>
+      </div>
+    </section>
+
+    <section class="custom-info scroll-reveal">
+      <div class="custom-info-aside">
+        <span class="custom-info-icon">✨</span>
+        <div class="custom-info-label" data-i18n="custom-label">Individuell</div>
+      </div>
+      <div class="custom-info-content">
+        <h3 data-i18n="custom-title">Auch besondere Anliegen sind willkommen</h3>
+        <p data-i18n="custom-text">Wenn Ihr Kind besondere Unterstützung benötigt, kann die Begleitung flexibel angepasst werden. Gemeinsam finden wir ein passendes Vorgehen.</p>
+        <a class="cta-link" href="erstgespraech.html" data-i18n="custom-cta">Kostenloses Erstgespräch</a>
+      </div>
+    </section>
+
+    <section class="feedback-section scroll-reveal" id="feedback">
+      <div class="program-header">
+        <h2 data-i18n="feedback-title">Feedback</h2>
+        <p data-i18n="feedback-subtitle">Was Eltern und Kinder über die Begleitung berichten</p>
+      </div>
+      <div class="feedback-toggle-wrap">
+        <div class="feedback-toggle" role="tablist" aria-label="Feedback Ansicht wählen">
+          <button type="button" class="feedback-btn feedback-active" data-feedback="eltern" data-i18n="feedback-parents" aria-pressed="true">Elternstimmen</button>
+          <button type="button" class="feedback-btn" data-feedback="kinder" data-i18n="feedback-children" aria-pressed="false">Schülerstimmen</button>
+        </div>
+      </div>
+      <div class="feedback-card">
+        <div class="feedback-stars" aria-hidden="true">⭐⭐⭐⭐⭐</div>
+        <p class="feedback-quote-text" id="feedbackQuoteText"></p>
+        <cite class="feedback-quote-name" id="feedbackQuoteName"></cite>
+      </div>
+      <div class="feedback-nav">
+        <button type="button" class="feedback-arrow" id="feedbackPrev" aria-label="Vorheriges Feedback">‹</button>
+        <div class="feedback-dots" id="feedbackDots"></div>
+        <button type="button" class="feedback-arrow" id="feedbackNext" aria-label="Nächstes Feedback">›</button>
+      </div>
+    </section>
+
+    <section class="signoff scroll-reveal">
+      <span class="signoff-mark" data-i18n="signoff-title">Ihr nächster Schritt</span>
+      <p data-i18n="signoff-text">Ein unverbindliches Kennenlernen – damit Sie in Ruhe entscheiden können, was für Ihr Kind passend ist.</p>
+    </section>
+
+    <div class="footer-note scroll-reveal" data-i18n="footer-note">Alle Preise inkl. Vor- und Nachbereitung · Anfahrt nach Absprache</div>
+  </main>
+
+  <script>
+    const translations = {
+      de: {
+        'nav-logo': 'Lernbegleitung',
+        'nav-overview': 'Übersicht',
+        'nav-questionnaire': 'Fragebogen',
+        'nav-consultation': 'Erstgespräch',
+        'nav-feedback': 'Feedback',
+        'hero-eyebrow': 'Individuelle Lernbegleitung',
+        'hero-title-1': 'Maßgeschneiderte Unterstützung für',
+        'hero-title-2': 'Ihr Kind',
+        'hero-tagline': 'Mehr als Nachhilfe — ein Mentor, der Ihr Kind wirklich kennt.',
+        'usp-1-label': 'Mehr als Stoff',
+        'usp-1-text': 'Wissensvermittlung, Lernorganisation, Motivation und Konzentrationstraining in einem',
+        'usp-2-label': 'Echte Verbindlichkeit',
+        'usp-2-text': 'Verlässliche Beziehung, individuelle Begleitung und klare Vereinbarungen mit Ihrem Kind',
+        'usp-3-label': 'Elternentlastung',
+        'usp-3-text': 'Sie bleiben informiert, ohne selbst täglich eingreifen zu müssen',
+        'benefits-label': 'Was diese Begleitung umfasst',
+        'benefit-1': 'Wissenslücken schließen',
+        'benefit-2': 'Lernstrategien entwickeln',
+        'benefit-3': 'Motivation fördern',
+        'benefit-4': 'Konzentration stärken',
+        'benefit-5': 'Verlässliche Begleitung',
+        'benefit-6': 'Entlastung für Eltern',
+        'benefit-7': 'Entlastung für das Schulkind',
+        'benefit-8': 'Selbstsicherer in die Schule gehen',
+        'program-title': 'Das Programm',
+        'program-subtitle': 'Drei Begleitungsstufen — maßgeschneidert nach dem Bedarf Ihres Kindes',
+        'level-1': 'Stufe I',
+        'level-2': 'Stufe II',
+        'level-3': 'Stufe III',
+        'recommended': 'Meistgewählt',
+        'prog-1-name': 'Begleitung',
+        'prog-1-desc': 'Stabilisieren · Strukturieren · Halten',
+        'prog-1-fit-1': 'Stabile Schüler mit Bedarf an Routine',
+        'prog-1-fit-2': 'Regelmäßige Hausaufgabenstruktur',
+        'prog-1-fit-3': 'Erhalt des Leistungsniveaus',
+        'prog-1-opt-a-freq': '1x pro Woche',
+        'prog-1-opt-a-duration': '60 Minuten / Einheit',
+        'prog-1-opt-b-freq': '1x pro Woche',
+        'prog-1-opt-b-duration': '90 Minuten / Einheit',
+        'prog-2-name': 'Förderung',
+        'prog-2-desc': 'Aufholen · Verbessern · Wachsen',
+        'prog-2-fit-1': 'Bestehende Wissenslücken schließen',
+        'prog-2-fit-2': 'Gezielte Notenverbesserung',
+        'prog-2-fit-3': 'Regelmäßige strukturierte Unterstützung',
+        'prog-2-opt-a-freq': '2x pro Woche',
+        'prog-2-opt-a-duration': '60 Minuten / Einheit',
+        'prog-2-opt-b-freq': '2x pro Woche',
+        'prog-2-opt-b-duration': '90 Minuten / Einheit',
+        'prog-3-name': 'Intensiv',
+        'prog-3-desc': 'Durchstarten · Aufholen · Bestehen',
+        'prog-3-fit-1': 'Größere Lernrückstände',
+        'prog-3-fit-2': 'Prüfungs- und Klausurphasen',
+        'prog-3-fit-3': 'Versetzungsgefährdung',
+        'prog-3-fit-4': 'Engmaschige, intensive Begleitung',
+        'prog-3-opt-a-freq': '3x pro Woche',
+        'prog-3-opt-a-duration': '60 Minuten / Einheit',
+        'prog-3-opt-b-freq': '3x pro Woche',
+        'prog-3-opt-b-duration': '90 Minuten / Einheit',
+        'for-title': 'Geeignet für',
+        'prog-hint-show': 'Preise ansehen',
+        'prog-hint-hide': 'Preise ausblenden',
+        'option-a': 'Option A',
+        'option-b': 'Option B',
+        'per-month': ' / Mo.',
+        'hint-label': 'Hinweis',
+        'hint-title': 'Persönlich statt standardisiert',
+        'hint-text': 'Jede Lernbegleitung wird individuell geplant. Inhalte, Tempo und Ziele richten sich nach dem tatsächlichen Bedarf Ihres Kindes.',
+        'timeline-kicker': 'Ablauf',
+        'timeline-title': 'So starten wir',
+        'timeline-text': 'Vom ersten Kontakt bis zur laufenden Begleitung – transparent und unkompliziert.',
+        'step-1-title': 'Anfrage',
+        'step-1-text': 'Sie senden eine kurze Anfrage oder füllen den Fragebogen aus.',
+        'step-2-title': 'Erstgespräch',
+        'step-2-text': 'Wir besprechen Situation, Ziele und passende Formate.',
+        'step-3-title': 'Planung',
+        'step-3-text': 'Sie erhalten einen klaren Vorschlag für die weitere Begleitung.',
+        'step-4-title': 'Beginn',
+        'step-4-text': 'Die Lernbegleitung startet strukturiert und individuell abgestimmt.',
+        'custom-label': 'Individuell',
+        'custom-title': 'Auch besondere Anliegen sind willkommen',
+        'custom-text': 'Wenn Ihr Kind besondere Unterstützung benötigt, kann die Begleitung flexibel angepasst werden. Gemeinsam finden wir ein passendes Vorgehen.',
+        'custom-cta': 'Kostenloses Erstgespräch',
+        'signoff-title': 'Ihr nächster Schritt',
+        'signoff-text': 'Ein unverbindliches Kennenlernen – damit Sie in Ruhe entscheiden können, was für Ihr Kind passend ist.',
+        'footer-note': 'Alle Preise inkl. Vor- und Nachbereitung · Anfahrt nach Absprache',
+        'feedback-title': 'Feedback',
+        'feedback-subtitle': 'Authentische Einblicke aus der Begleitung — geordnet nach Eltern- und Schülerstimmen.',
+        'feedback-parents': 'Elternstimmen',
+        'feedback-children': 'Schülerstimmen',
+        'feedback-parent-1': '„Unser Kind geht inzwischen deutlich entspannter in die Schule und lernt selbstständiger. Die klare Struktur hat den Familienalltag spürbar entlastet.“',
+        'feedback-parent-1-name': '— Familie M.',
+        'feedback-parent-2': '„Endlich Struktur im Nachmittag – und spürbar mehr Ruhe zu Hause.“',
+        'feedback-parent-2-name': '— Mutter, 8. Klasse',
+        'feedback-parent-3': '„Wir werden regelmäßig informiert, ohne dass wir selbst nachhaken müssen.“',
+        'feedback-parent-3-name': '— Vater, 6. Klasse',
+        'feedback-child-1': '„Ich verstehe Mathe jetzt viel besser und habe keine Angst mehr vor Tests.“',
+        'feedback-child-1-name': '— Schülerin, 7. Klasse',
+        'feedback-child-2': '„Es macht sogar Spaß, weil mir jemand in Ruhe alles erklärt.“',
+        'feedback-child-2-name': '— Schüler, 5. Klasse',
+        'feedback-child-3': '„Ich traue mich jetzt auch im Unterricht öfter etwas zu sagen.“',
+        'feedback-child-3-name': '— Schüler, 9. Klasse'
+      },
+      vi: {
+        'nav-logo': 'Đồng Hành Học Tập',
+        'nav-overview': 'Tổng quan',
+        'nav-questionnaire': 'Bảng câu hỏi',
+        'nav-consultation': 'Tư vấn đầu tiên',
+        'nav-feedback': 'Phản hồi',
+        'hero-eyebrow': 'Đồng hành học tập cá nhân',
+        'hero-title-1': 'Sự hỗ trợ phù hợp dành cho',
+        'hero-title-2': 'con của bạn',
+        'hero-tagline': 'Hơn cả gia sư — một người đồng hành thực sự hiểu con bạn.',
+        'usp-1-label': 'Hơn cả kiến thức',
+        'usp-1-text': 'Truyền đạt kiến thức, tổ chức học tập, tạo động lực và rèn luyện sự tập trung trong một chương trình',
+        'usp-2-label': 'Cam kết thực sự',
+        'usp-2-text': 'Mối quan hệ đáng tin cậy, đồng hành cá nhân và thỏa thuận rõ ràng với con bạn',
+        'usp-3-label': 'Giảm áp lực cho phụ huynh',
+        'usp-3-text': 'Bạn luôn được cập nhật thông tin mà không cần tự mình can thiệp hằng ngày',
+        'benefits-label': 'Chương trình này bao gồm',
+        'benefit-1': 'Lấp đầy lỗ hổng kiến thức',
+        'benefit-2': 'Phát triển chiến lược học tập',
+        'benefit-3': 'Tăng động lực học',
+        'benefit-4': 'Cải thiện sự tập trung',
+        'benefit-5': 'Đồng hành đáng tin cậy',
+        'benefit-6': 'Giảm áp lực cho phụ huynh',
+        'benefit-7': 'Giảm áp lực cho học sinh',
+        'benefit-8': 'Tự tin hơn khi đến trường',
+        'program-title': 'Chương trình',
+        'program-subtitle': 'Ba cấp độ đồng hành — được thiết kế theo nhu cầu của con bạn',
+        'level-1': 'Cấp I',
+        'level-2': 'Cấp II',
+        'level-3': 'Cấp III',
+        'recommended': 'Được chọn nhiều nhất',
+        'prog-1-name': 'Đồng hành',
+        'prog-1-desc': 'Ổn định · Tổ chức · Duy trì',
+        'prog-1-fit-1': 'Học sinh ổn định nhưng cần nề nếp',
+        'prog-1-fit-2': 'Cấu trúc làm bài tập đều đặn',
+        'prog-1-fit-3': 'Duy trì mức học lực hiện tại',
+        'prog-1-opt-a-freq': '1 buổi / tuần',
+        'prog-1-opt-a-duration': '60 phút / buổi',
+        'prog-1-opt-b-freq': '1 buổi / tuần',
+        'prog-1-opt-b-duration': '90 phút / buổi',
+        'prog-2-name': 'Tăng cường',
+        'prog-2-desc': 'Bù đắp · Cải thiện · Phát triển',
+        'prog-2-fit-1': 'Khép lại lỗ hổng kiến thức hiện có',
+        'prog-2-fit-2': 'Cải thiện điểm số có mục tiêu',
+        'prog-2-fit-3': 'Hỗ trợ có cấu trúc thường xuyên',
+        'prog-2-opt-a-freq': '2 buổi / tuần',
+        'prog-2-opt-a-duration': '60 phút / buổi',
+        'prog-2-opt-b-freq': '2 buổi / tuần',
+        'prog-2-opt-b-duration': '90 phút / buổi',
+        'prog-3-name': 'Chuyên sâu',
+        'prog-3-desc': 'Bứt phá · Bổ sung · Vượt qua',
+        'prog-3-fit-1': 'Khoảng trống kiến thức lớn',
+        'prog-3-fit-2': 'Giai đoạn thi cử và kiểm tra',
+        'prog-3-fit-3': 'Nguy cơ không lên lớp',
+        'prog-3-fit-4': 'Đồng hành sát sao, chuyên sâu',
+        'prog-3-opt-a-freq': '3 buổi / tuần',
+        'prog-3-opt-a-duration': '60 phút / buổi',
+        'prog-3-opt-b-freq': '3 buổi / tuần',
+        'prog-3-opt-b-duration': '90 phút / buổi',
+        'for-title': 'Phù hợp cho',
+        'prog-hint-show': 'Xem giá',
+        'prog-hint-hide': 'Ẩn giá',
+        'option-a': 'Lựa chọn A',
+        'option-b': 'Lựa chọn B',
+        'per-month': ' / tháng',
+        'hint-label': 'Lưu ý',
+        'hint-title': 'Cá nhân thay vì rập khuôn',
+        'hint-text': 'Mỗi kế hoạch đồng hành học tập đều được xây dựng riêng. Nội dung, tốc độ và mục tiêu được điều chỉnh theo nhu cầu thực tế của con bạn.',
+        'timeline-kicker': 'Quy trình',
+        'timeline-title': 'Chúng ta bắt đầu như thế nào',
+        'timeline-text': 'Từ liên hệ đầu tiên đến quá trình đồng hành lâu dài — minh bạch và đơn giản.',
+        'step-1-title': 'Liên hệ',
+        'step-1-text': 'Bạn gửi yêu cầu ngắn hoặc điền vào bảng câu hỏi.',
+        'step-2-title': 'Tư vấn đầu tiên',
+        'step-2-text': 'Chúng tôi trao đổi về tình hình, mục tiêu và hình thức phù hợp.',
+        'step-3-title': 'Lập kế hoạch',
+        'step-3-text': 'Bạn nhận được đề xuất rõ ràng cho lộ trình tiếp theo.',
+        'step-4-title': 'Bắt đầu',
+        'step-4-text': 'Quá trình đồng hành bắt đầu có cấu trúc và phù hợp riêng.',
+        'custom-label': 'Cá nhân hóa',
+        'custom-title': 'Các nhu cầu đặc biệt cũng luôn được chào đón',
+        'custom-text': 'Nếu con bạn cần hỗ trợ đặc biệt, chương trình có thể được điều chỉnh linh hoạt. Chúng ta sẽ cùng tìm ra hướng đi phù hợp.',
+        'custom-cta': 'Tư vấn miễn phí',
+        'signoff-title': 'Bước tiếp theo của bạn',
+        'signoff-text': 'Một buổi làm quen không ràng buộc — để bạn có thể bình tĩnh quyết định điều gì là phù hợp nhất cho con mình.',
+        'footer-note': 'Mọi mức giá đã bao gồm chuẩn bị và theo dõi · Di chuyển theo thỏa thuận',
+        'feedback-title': 'Phản hồi',
+        'feedback-subtitle': 'Những chia sẻ chân thực từ quá trình đồng hành — theo ý kiến phụ huynh và học sinh.',
+        'feedback-parents': 'Ý kiến phụ huynh',
+        'feedback-children': 'Ý kiến học sinh',
+        'feedback-parent-1': '"Con tôi bây giờ đến trường thoải mái hơn hẳn và học tự giác hơn. Nề nếp rõ ràng đã giúp cả gia đình nhẹ nhõm hơn nhiều."',
+        'feedback-parent-1-name': '— Gia đình M.',
+        'feedback-parent-2': '"Cuối cùng buổi chiều cũng có nề nếp – và không khí ở nhà dễ chịu hơn hẳn."',
+        'feedback-parent-2-name': '— Mẹ, học sinh lớp 8',
+        'feedback-parent-3': '"Chúng tôi luôn được cập nhật thường xuyên mà không cần phải hỏi."',
+        'feedback-parent-3-name': '— Bố, học sinh lớp 6',
+        'feedback-child-1': '"Bây giờ em hiểu Toán tốt hơn nhiều và không còn sợ bài kiểm tra nữa."',
+        'feedback-child-1-name': '— Học sinh nữ, lớp 7',
+        'feedback-child-2': '"Học cũng vui hơn vì có người giải thích cho em thật kỹ."',
+        'feedback-child-2-name': '— Học sinh nam, lớp 5',
+        'feedback-child-3': '"Em tự tin hơn khi phát biểu trong giờ học."',
+        'feedback-child-3-name': '— Học sinh, lớp 9'
+      }
+    };
+
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const progCols = document.querySelectorAll('.prog-col');
+
+    function setLanguage(lang) {
+      const selected = translations[lang] ? lang : 'de';
+      localStorage.setItem('lang', selected);
+      document.documentElement.lang = selected;
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (translations[selected][key]) {
+          el.textContent = translations[selected][key];
+        }
+      });
+
+      langButtons.forEach((btn) => {
+        const active = btn.dataset.lang === selected;
+        btn.classList.toggle('lang-active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      if (typeof renderFeedback === 'function') renderFeedback();
+    }
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    progCols.forEach((col) => {
+      col.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          col.classList.toggle('active');
+        } else {
+          progCols.forEach((item) => item.classList.remove('active'));
+          col.classList.add('active');
+        }
+
+        if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+          const wasPopped = col.classList.contains('popped');
+          progCols.forEach((item) => item.classList.remove('popped'));
+          if (!wasPopped) col.classList.add('popped');
+        }
+      });
+
+      let hintTimer = null;
+      col.addEventListener('mouseenter', () => {
+        hintTimer = setTimeout(() => {
+          col.classList.add('show-hint');
+        }, 15000);
+      });
+      col.addEventListener('mouseleave', () => {
+        clearTimeout(hintTimer);
+        col.classList.remove('show-hint');
+      });
+    });
+
+    const feedbackButtons = document.querySelectorAll('.feedback-btn');
+    const feedbackQuoteText = document.getElementById('feedbackQuoteText');
+    const feedbackQuoteName = document.getElementById('feedbackQuoteName');
+    const feedbackDots = document.getElementById('feedbackDots');
+    const feedbackPrev = document.getElementById('feedbackPrev');
+    const feedbackNext = document.getElementById('feedbackNext');
+
+    const feedbackKeys = {
+      eltern: ['feedback-parent-1', 'feedback-parent-2', 'feedback-parent-3'],
+      kinder: ['feedback-child-1', 'feedback-child-2', 'feedback-child-3']
+    };
+
+    let feedbackGroup = 'eltern';
+    let feedbackIndex = 0;
+
+    function renderFeedback() {
+      const lang = translations[document.documentElement.lang] ? document.documentElement.lang : 'de';
+      const keys = feedbackKeys[feedbackGroup];
+      const key = keys[feedbackIndex];
+
+      feedbackQuoteText.textContent = translations[lang][key] || '';
+      feedbackQuoteName.textContent = translations[lang][key + '-name'] || '';
+
+      feedbackDots.innerHTML = '';
+      keys.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'feedback-dot' + (i === feedbackIndex ? ' feedback-dot-active' : '');
+        dot.setAttribute('aria-label', `Feedback ${i + 1}`);
+        dot.addEventListener('click', () => {
+          feedbackIndex = i;
+          renderFeedback();
+        });
+        feedbackDots.appendChild(dot);
+      });
+    }
+
+    feedbackButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        feedbackGroup = btn.dataset.feedback;
+        feedbackIndex = 0;
+
+        feedbackButtons.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle('feedback-active', active);
+          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        renderFeedback();
+      });
+    });
+
+    feedbackPrev.addEventListener('click', () => {
+      const len = feedbackKeys[feedbackGroup].length;
+      feedbackIndex = (feedbackIndex - 1 + len) % len;
+      renderFeedback();
+    });
+
+    feedbackNext.addEventListener('click', () => {
+      const len = feedbackKeys[feedbackGroup].length;
+      feedbackIndex = (feedbackIndex + 1) % len;
+      renderFeedback();
+    });
+
+    renderFeedback();
+
+    const savedLang = localStorage.getItem('lang') || 'de';
+    setLanguage(savedLang);
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach((el) => observer.observe(el));
+    } else {
+      revealElements.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
