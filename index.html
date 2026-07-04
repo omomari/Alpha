@@ -1028,13 +1028,176 @@
     letter-spacing: 0.06em;
     line-height: 1.7;
   }
+  .signoff strong {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  /* FOOTER NOTE */
+  .footer-note {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+  }
 
   @media (max-width:720px) {
     .trust-section{ grid-template-columns:1fr; }
+    .advisory { grid-template-columns: 1fr; }
+    .advisory-aside { width: auto; text-align: left; display: flex; align-items: center; gap: 1rem; }
+    .masthead h1 { font-size: 2.4rem; }
+    .nav-menu { gap: 1rem; }
+    .nav-menu a { font-size: 0.75rem; }
+    .lang-btn { font-size: 0.68rem; padding: 0.25rem 0.45rem; }
   }
 </style>
 </head>
 <body>
-<!-- content omitted -->
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo" data-i18n="nav-logo">Lernbegleitung</a>
+      <ul class="nav-menu">
+        <li><a href="index.html#uebersicht" data-i18n="nav-uebersicht">Übersicht</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform" target="_blank" data-i18n="nav-fragebogen">Fragebogen</a></li>
+        <li><a href="erstgespraech.html" class="active" data-i18n="nav-erstgespraech">Erstgespräch</a></li>
+      </ul>
+      <div class="lang-switcher" role="group" aria-label="Sprache wählen">
+        <button class="lang-btn lang-active" data-lang="de" aria-pressed="true">🇩🇪 Deutsch</button>
+        <button class="lang-btn" data-lang="vi" aria-pressed="false">🇻🇳 Vietnamesisch</button>
+      </div>
+    </div>
+  </nav>
+
+<main class="wrap">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-eyebrow" data-i18n="eg-eyebrow">Kostenloses Erstgespräch</div>
+    <h1><span data-i18n="eg-h1-pre">Ihr persönliches</span><br><em data-i18n="eg-h1-em">Erstgespräch</em></h1>
+    <p class="masthead-tagline" data-i18n="eg-tagline">Der erste Schritt zu einer maßgeschneiderten Lernbegleitung für Ihr Kind</p>
+  </div>
+
+  <!-- HINT BOX -->
+  <div class="advisory">
+    <div class="advisory-aside">
+      <span class="advisory-roman">✉</span>
+      <div class="advisory-aside-label" data-i18n="eg-aside-label">Hinweis</div>
+    </div>
+    <div class="advisory-content">
+      <h2 data-i18n="eg-h2">So geht es weiter</h2>
+      <p data-i18n="eg-p1">Damit wir Sie und Ihr Kind optimal kennenlernen und das Erstgespräch bestmöglich vorbereiten können, bitten wir Sie, zunächst unseren kurzen Fragebogen auszufüllen.</p>
+      <p data-i18n="eg-p2">Sobald wir Ihre Angaben erhalten haben, melden wir uns schnellstmöglich bei Ihnen — üblicherweise innerhalb von 1–2 Werktagen.</p>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLScY4SGkeOJdeBagU6Xr3PGJCkCjjK77xC0rta2j9_PV4GhbZA/viewform"
+        target="_blank"
+        class="cta-link"
+        data-i18n="eg-cta"
+      >Fragebogen ausfüllen</a>
+    </div>
+  </div>
+
+  <!-- SIGN-OFF -->
+  <div class="signoff">
+    <span class="signoff-mark" data-i18n="signoff-mark">Ihr nächster Schritt</span>
+    <p><span data-i18n="signoff-p">Ein kostenloses Erstgespräch — um gemeinsam einzuschätzen, was Ihr Kind braucht.</span><br>
+    <strong data-i18n="signoff-strong">Grundschule bis Oberstufe</strong></p>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div class="footer-note" data-i18n="footer-note">
+    Alle Preise inkl. Vor- und Nachbereitung · Anfahrt
+  </div>
+
+</main>
+
+<script>
+  // ─── i18n translations (shared subset) ──────────────────────────────────
+  const translations = {
+    de: {
+      'page-title': 'Erstgespräch – Individuelle Lernbegleitung',
+      'nav-logo': 'Lernbegleitung',
+      'nav-uebersicht': 'Übersicht',
+      'nav-fragebogen': 'Fragebogen',
+      'nav-erstgespraech': 'Erstgespräch',
+      'eg-eyebrow': 'Kostenloses Erstgespräch',
+      'eg-h1-pre': 'Ihr persönliches',
+      'eg-h1-em': 'Erstgespräch',
+      'eg-tagline': 'Der erste Schritt zu einer maßgeschneiderten Lernbegleitung für Ihr Kind',
+      'eg-aside-label': 'Hinweis',
+      'eg-h2': 'So geht es weiter',
+      'eg-p1': 'Damit wir Sie und Ihr Kind optimal kennenlernen und das Erstgespräch bestmöglich vorbereiten können, bitten wir Sie, zunächst unseren kurzen Fragebogen auszufüllen.',
+      'eg-p2': 'Sobald wir Ihre Angaben erhalten haben, melden wir uns schnellstmöglich bei Ihnen — üblicherweise innerhalb von 1–2 Werktagen.',
+      'eg-cta': 'Fragebogen ausfüllen',
+      'signoff-mark': 'Ihr nächster Schritt',
+      'signoff-p': 'Ein kostenloses Erstgespräch — um gemeinsam einzuschätzen, was Ihr Kind braucht.',
+      'signoff-strong': 'Grundschule bis Oberstufe',
+      'footer-note': 'Alle Preise inkl. Vor- und Nachbereitung · Anfahrt',
+    },
+    vi: {
+      'page-title': 'Buổi Tư Vấn – Hỗ Trợ Học Tập Cá Nhân Hóa',
+      'nav-logo': 'Hỗ Trợ Học Tập',
+      'nav-uebersicht': 'Tổng quan',
+      'nav-fragebogen': 'Bảng câu hỏi',
+      'nav-erstgespraech': 'Buổi tư vấn',
+      'eg-eyebrow': 'Buổi tư vấn miễn phí',
+      'eg-h1-pre': 'Buổi tư vấn',
+      'eg-h1-em': 'cá nhân của bạn',
+      'eg-tagline': 'Bước đầu tiên hướng tới chương trình hỗ trợ học tập phù hợp với con bạn',
+      'eg-aside-label': 'Lưu ý',
+      'eg-h2': 'Các bước tiếp theo',
+      'eg-p1': 'Để chúng tôi có thể tìm hiểu về bạn và con bạn một cách tốt nhất và chuẩn bị cho buổi tư vấn đầu tiên một cách chu đáo, chúng tôi xin bạn điền trước bảng câu hỏi ngắn của chúng tôi.',
+      'eg-p2': 'Ngay sau khi nhận được thông tin của bạn, chúng tôi sẽ liên hệ lại với bạn sớm nhất có thể — thường trong vòng 1–2 ngày làm việc.',
+      'eg-cta': 'Điền bảng câu hỏi',
+      'signoff-mark': 'Bước tiếp theo của bạn',
+      'signoff-p': 'Một buổi tư vấn miễn phí — để cùng nhau xác định những gì con bạn cần.',
+      'signoff-strong': 'Từ tiểu học đến trung học phổ thông',
+      'footer-note': 'Tất cả giá bao gồm chuẩn bị và theo dõi · Di chuyển',
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'de';
+
+  function setLanguage(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang === 'de' ? 'de' : 'vi';
+
+    // Update page title
+    if (translations[lang]['page-title']) {
+      document.title = translations[lang]['page-title'];
+    }
+
+    // Update all data-i18n text content
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang][key] !== undefined) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // Update lang switcher button states
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('lang-active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
+  // ─── Language switcher buttons ───────────────────────────────────────────
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  // ─── Apply saved/initial language ────────────────────────────────────────
+  setLanguage(currentLang);
+</script>
+
 </body>
 </html>
